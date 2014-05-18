@@ -85,8 +85,8 @@ typedef enum {
 - (void)popViewControllerAnimated:(BOOL)animated selfAnimated:(BOOL)selfAnimated;
 - (void)popToRootViewControllerAnimated:(BOOL)animated selfAnimated:(BOOL)selfAnimated;
 
-- (void)presentViewController:(BaseViewController*)vc animated:(BOOL)animated completion:(void (^)(void))completion;
-- (void)dismissViewControllerAnimated:(BOOL)animated completion: (void (^)(void))completion;
+//- (void)presentViewController:(BaseViewController*)vc animated:(BOOL)animated completion:(void (^)(void))completion;
+//- (void)dismissViewControllerAnimated:(BOOL)animated completion: (void (^)(void))completion;
 
 //- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail delegate:(id<ASIProgressDelegate>)delegate;
 //- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;

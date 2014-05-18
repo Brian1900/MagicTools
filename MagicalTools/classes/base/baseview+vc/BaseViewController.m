@@ -62,9 +62,9 @@
 //    self.view.clipsToBounds = NO;
     
     if (self.isModelView) {
-        self.view.backgroundColor = [UIColor blackColor];
+        self.view.backgroundColor = [UIColor whiteColor];
     }else{
-        self.view.backgroundColor = [UIColor clearColor];
+        self.view.backgroundColor = [UIColor whiteColor];
     }
     
     if (self.navigationController) {
@@ -110,7 +110,7 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return UIStatusBarStyleBlackTranslucent;
+    return UIStatusBarStyleDefault;
 }
 
 - (void)didReceiveMemoryWarning
@@ -238,19 +238,19 @@
     [self.navigationVC popToRootViewControllerAnimated:animated];
 }
 
-- (void)presentViewController:(BaseViewController*)vc animated:(BOOL)flag completion:(void (^)(void))completion
-{
-    BaseNavigationController* nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-    
-    vc.navigationVC = nav;
-    
-    [self.navigationVC presentViewController:vc animated:flag completion:completion];
-}
+//- (void)presentViewController:(BaseViewController*)vc animated:(BOOL)flag completion:(void (^)(void))completion
+//{
+//    BaseNavigationController* nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+//    
+//    vc.navigationVC = nav;
+//    
+//    [self.navigationVC presentViewController:vc animated:flag completion:completion];
+//}
 
-- (void)dismissViewControllerAnimated:(BOOL)animated completion: (void (^)(void))completion
-{
-    [self.navigationVC dismissViewControllerAnimated:YES completion:completion];
-}
+//- (void)dismissViewControllerAnimated:(BOOL)animated completion: (void (^)(void))completion
+//{
+//    [self.navigationVC dismissViewControllerAnimated:YES completion:completion];
+//}
 
 - (void)setTitleImageView:(UIImage *)image
 {

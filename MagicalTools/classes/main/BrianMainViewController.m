@@ -8,6 +8,7 @@
 
 #import "BrianMainViewController.h"
 #import "BrianPayCountViewController.h"
+#import "BrianScanViewController.h"
 
 @interface BrianMainViewController ()
 
@@ -43,9 +44,9 @@
 }
 
 - (IBAction)gotoScan:(id)sender {
-    BrianPayCountViewController* payCount = [[BrianPayCountViewController alloc] initWithNibName:@"BrianPayCountViewController" bundle:nil];
+    BrianScanViewController* scanVC = [[BrianScanViewController alloc] initWithNibName:@"BrianScanViewController" bundle:nil];
     
-    [self.navigationController pushViewController:payCount animated:YES];
+    [self.navigationController pushViewController:scanVC animated:YES];
 }
 
 @end

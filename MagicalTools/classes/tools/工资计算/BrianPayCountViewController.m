@@ -37,6 +37,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self initData];
+    [self initView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +51,11 @@
     nameArray = @[@"养老金",@"医疗",@"失业",@"工伤",@"生育",@"公积金"];
     currentArray = __dataSource.dataManager.cityDatas;
     selectCityIndex = 0;
+}
+
+- (void)initView
+{
+    [self.navigationBar addBackButtonWithTarget:self action:@selector(backButton:)];
 }
 
 - (IBAction)chooseCity:(id)sender {

@@ -83,12 +83,23 @@
 		D3C9849A190B95BD00C5E049 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C98482190B95BC00C5E049 /* UIKit.framework */; };
 		D3C984A2190B95BD00C5E049 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3C984A0190B95BD00C5E049 /* InfoPlist.strings */; };
 		D3C984A4190B95BD00C5E049 /* MagicalToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C984A3190B95BD00C5E049 /* MagicalToolsTests.m */; };
-		D3C984BC190B976900C5E049 /* BrianPayCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C984BA190B976900C5E049 /* BrianPayCountViewController.m */; };
-		D3C984BD190B976900C5E049 /* BrianPayCountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C984BB190B976900C5E049 /* BrianPayCountViewController.xib */; };
-		D3C984C7190B986400C5E049 /* BrianPayItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C984C5190B986400C5E049 /* BrianPayItemCell.m */; };
-		D3C984C8190B986400C5E049 /* BrianPayItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C984C6190B986400C5E049 /* BrianPayItemCell.xib */; };
 		D3C984CA190B9DBB00C5E049 /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3C984C9190B9DBB00C5E049 /* cityData.plist */; };
 		D3C984CE190B9DFC00C5E049 /* BrianDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C984CD190B9DFC00C5E049 /* BrianDataManager.m */; };
+		D3DC4C19192732EB0040AD2C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C18192732EB0040AD2C /* libzbar.a */; };
+		D3DC4C22192733470040AD2C /* BrianPayCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C1C192733470040AD2C /* BrianPayCountViewController.m */; };
+		D3DC4C23192733470040AD2C /* BrianPayCountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C1D192733470040AD2C /* BrianPayCountViewController.xib */; };
+		D3DC4C24192733470040AD2C /* BrianPayItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C20192733470040AD2C /* BrianPayItemCell.m */; };
+		D3DC4C25192733470040AD2C /* BrianPayItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C21192733470040AD2C /* BrianPayItemCell.xib */; };
+		D3DC4C2A1927336E0040AD2C /* BrianScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C281927336E0040AD2C /* BrianScanViewController.m */; };
+		D3DC4C2B1927336E0040AD2C /* BrianScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C291927336E0040AD2C /* BrianScanViewController.xib */; };
+		D3DC4C48192734220040AD2C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C44192734220040AD2C /* zbar-back.png */; };
+		D3DC4C49192734220040AD2C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C45192734220040AD2C /* zbar-help.html */; };
+		D3DC4C4A192734220040AD2C /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C46192734220040AD2C /* zbar-helpicons.png */; };
+		D3DC4C4B192734220040AD2C /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C47192734220040AD2C /* zbar-samples.png */; };
+		D3DC4C4D1927369B0040AD2C /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C4C1927369B0040AD2C /* libiconv.dylib */; };
+		D3DC4C4F192737DA0040AD2C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C4E192737DA0040AD2C /* CoreMedia.framework */; };
+		D3DC4C51192737E10040AD2C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C50192737E10040AD2C /* CoreVideo.framework */; };
+		D3DC4C53192738C90040AD2C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C52192738C90040AD2C /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,15 +242,47 @@
 		D3C9849F190B95BD00C5E049 /* MagicalToolsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MagicalToolsTests-Info.plist"; sourceTree = "<group>"; };
 		D3C984A1190B95BD00C5E049 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3C984A3190B95BD00C5E049 /* MagicalToolsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicalToolsTests.m; sourceTree = "<group>"; };
-		D3C984B9190B976900C5E049 /* BrianPayCountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianPayCountViewController.h; sourceTree = "<group>"; };
-		D3C984BA190B976900C5E049 /* BrianPayCountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianPayCountViewController.m; sourceTree = "<group>"; };
-		D3C984BB190B976900C5E049 /* BrianPayCountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianPayCountViewController.xib; sourceTree = "<group>"; };
-		D3C984C4190B986400C5E049 /* BrianPayItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianPayItemCell.h; sourceTree = "<group>"; };
-		D3C984C5190B986400C5E049 /* BrianPayItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianPayItemCell.m; sourceTree = "<group>"; };
-		D3C984C6190B986400C5E049 /* BrianPayItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianPayItemCell.xib; sourceTree = "<group>"; };
 		D3C984C9190B9DBB00C5E049 /* cityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityData.plist; sourceTree = "<group>"; };
 		D3C984CC190B9DFC00C5E049 /* BrianDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianDataManager.h; sourceTree = "<group>"; };
 		D3C984CD190B9DFC00C5E049 /* BrianDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianDataManager.m; sourceTree = "<group>"; };
+		D3DC4C18192732EB0040AD2C /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		D3DC4C1B192733470040AD2C /* BrianPayCountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianPayCountViewController.h; sourceTree = "<group>"; };
+		D3DC4C1C192733470040AD2C /* BrianPayCountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianPayCountViewController.m; sourceTree = "<group>"; };
+		D3DC4C1D192733470040AD2C /* BrianPayCountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianPayCountViewController.xib; sourceTree = "<group>"; };
+		D3DC4C1F192733470040AD2C /* BrianPayItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianPayItemCell.h; sourceTree = "<group>"; };
+		D3DC4C20192733470040AD2C /* BrianPayItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianPayItemCell.m; sourceTree = "<group>"; };
+		D3DC4C21192733470040AD2C /* BrianPayItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianPayItemCell.xib; sourceTree = "<group>"; };
+		D3DC4C271927336E0040AD2C /* BrianScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianScanViewController.h; sourceTree = "<group>"; };
+		D3DC4C281927336E0040AD2C /* BrianScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianScanViewController.m; sourceTree = "<group>"; };
+		D3DC4C291927336E0040AD2C /* BrianScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianScanViewController.xib; sourceTree = "<group>"; };
+		D3DC4C2F192734220040AD2C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
+		D3DC4C30192734220040AD2C /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		D3DC4C31192734220040AD2C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		D3DC4C32192734220040AD2C /* ImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScanner.h; sourceTree = "<group>"; };
+		D3DC4C33192734220040AD2C /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		D3DC4C34192734220040AD2C /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		D3DC4C35192734220040AD2C /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
+		D3DC4C36192734220040AD2C /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		D3DC4C37192734220040AD2C /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		D3DC4C38192734220040AD2C /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
+		D3DC4C39192734220040AD2C /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
+		D3DC4C3A192734220040AD2C /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
+		D3DC4C3B192734220040AD2C /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
+		D3DC4C3C192734220040AD2C /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
+		D3DC4C3D192734220040AD2C /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
+		D3DC4C3E192734220040AD2C /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
+		D3DC4C3F192734220040AD2C /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
+		D3DC4C40192734220040AD2C /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
+		D3DC4C41192734220040AD2C /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		D3DC4C42192734220040AD2C /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+		D3DC4C44192734220040AD2C /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
+		D3DC4C45192734220040AD2C /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
+		D3DC4C46192734220040AD2C /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
+		D3DC4C47192734220040AD2C /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		D3DC4C4C1927369B0040AD2C /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		D3DC4C4E192737DA0040AD2C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D3DC4C50192737E10040AD2C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		D3DC4C52192738C90040AD2C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,8 +290,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DC4C53192738C90040AD2C /* AVFoundation.framework in Frameworks */,
+				D3DC4C51192737E10040AD2C /* CoreVideo.framework in Frameworks */,
+				D3DC4C4F192737DA0040AD2C /* CoreMedia.framework in Frameworks */,
+				D3DC4C4D1927369B0040AD2C /* libiconv.dylib in Frameworks */,
 				7405F45F1925A5C400BFC99F /* libz.1.2.5.dylib in Frameworks */,
 				7405F45D1925A5BF00BFC99F /* libstdc++.dylib in Frameworks */,
+				D3DC4C19192732EB0040AD2C /* libzbar.a in Frameworks */,
 				7405F45B1925A5B700BFC99F /* libsqlite3.dylib in Frameworks */,
 				7405F4591925A56A00BFC99F /* CFNetwork.framework in Frameworks */,
 				7405F4571925A56200BFC99F /* CoreTelephony.framework in Frameworks */,
@@ -285,6 +333,7 @@
 		748F947C1924627700D49728 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC4C17192732EB0040AD2C /* ZBar */,
 				748F94B51924627700D49728 /* baseview+vc */,
 				748F94CD1924627700D49728 /* date */,
 				748F94D01924627700D49728 /* DB */,
@@ -565,6 +614,10 @@
 		D3C9847D190B95BC00C5E049 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC4C52192738C90040AD2C /* AVFoundation.framework */,
+				D3DC4C50192737E10040AD2C /* CoreVideo.framework */,
+				D3DC4C4E192737DA0040AD2C /* CoreMedia.framework */,
+				D3DC4C4C1927369B0040AD2C /* libiconv.dylib */,
 				7405F45E1925A5C400BFC99F /* libz.1.2.5.dylib */,
 				7405F45C1925A5BF00BFC99F /* libstdc++.dylib */,
 				7405F45A1925A5B700BFC99F /* libsqlite3.dylib */,
@@ -634,23 +687,11 @@
 		D3C984B6190B973F00C5E049 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC4C261927335A0040AD2C /* 扫描 */,
+				D3DC4C1A192733470040AD2C /* 工资计算 */,
 				D3C984CB190B9DEA00C5E049 /* data */,
-				D3C984BE190B980B00C5E049 /* cell */,
-				D3C984B9190B976900C5E049 /* BrianPayCountViewController.h */,
-				D3C984BA190B976900C5E049 /* BrianPayCountViewController.m */,
-				D3C984BB190B976900C5E049 /* BrianPayCountViewController.xib */,
 			);
 			path = tools;
-			sourceTree = "<group>";
-		};
-		D3C984BE190B980B00C5E049 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				D3C984C4190B986400C5E049 /* BrianPayItemCell.h */,
-				D3C984C5190B986400C5E049 /* BrianPayItemCell.m */,
-				D3C984C6190B986400C5E049 /* BrianPayItemCell.xib */,
-			);
-			path = cell;
 			sourceTree = "<group>";
 		};
 		D3C984CB190B9DEA00C5E049 /* data */ = {
@@ -662,6 +703,101 @@
 				74FA1F7319249BF9001920A2 /* BrianDataSource.m */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		D3DC4C17192732EB0040AD2C /* ZBar */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C2C192734220040AD2C /* Headers */,
+				D3DC4C43192734220040AD2C /* Resources */,
+				D3DC4C18192732EB0040AD2C /* libzbar.a */,
+			);
+			path = ZBar;
+			sourceTree = "<group>";
+		};
+		D3DC4C1A192733470040AD2C /* 工资计算 */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C1B192733470040AD2C /* BrianPayCountViewController.h */,
+				D3DC4C1C192733470040AD2C /* BrianPayCountViewController.m */,
+				D3DC4C1D192733470040AD2C /* BrianPayCountViewController.xib */,
+				D3DC4C1E192733470040AD2C /* cell */,
+			);
+			path = "工资计算";
+			sourceTree = "<group>";
+		};
+		D3DC4C1E192733470040AD2C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C1F192733470040AD2C /* BrianPayItemCell.h */,
+				D3DC4C20192733470040AD2C /* BrianPayItemCell.m */,
+				D3DC4C21192733470040AD2C /* BrianPayItemCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		D3DC4C261927335A0040AD2C /* 扫描 */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C271927336E0040AD2C /* BrianScanViewController.h */,
+				D3DC4C281927336E0040AD2C /* BrianScanViewController.m */,
+				D3DC4C291927336E0040AD2C /* BrianScanViewController.xib */,
+			);
+			path = "扫描";
+			sourceTree = "<group>";
+		};
+		D3DC4C2C192734220040AD2C /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C2D192734220040AD2C /* ZBarSDK */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		D3DC4C2D192734220040AD2C /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C2E192734220040AD2C /* zbar */,
+				D3DC4C38192734220040AD2C /* zbar.h */,
+				D3DC4C39192734220040AD2C /* ZBarCameraSimulator.h */,
+				D3DC4C3A192734220040AD2C /* ZBarCaptureReader.h */,
+				D3DC4C3B192734220040AD2C /* ZBarHelpController.h */,
+				D3DC4C3C192734220040AD2C /* ZBarImage.h */,
+				D3DC4C3D192734220040AD2C /* ZBarImageScanner.h */,
+				D3DC4C3E192734220040AD2C /* ZBarReaderController.h */,
+				D3DC4C3F192734220040AD2C /* ZBarReaderView.h */,
+				D3DC4C40192734220040AD2C /* ZBarReaderViewController.h */,
+				D3DC4C41192734220040AD2C /* ZBarSDK.h */,
+				D3DC4C42192734220040AD2C /* ZBarSymbol.h */,
+			);
+			path = ZBarSDK;
+			sourceTree = "<group>";
+		};
+		D3DC4C2E192734220040AD2C /* zbar */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C2F192734220040AD2C /* Decoder.h */,
+				D3DC4C30192734220040AD2C /* Exception.h */,
+				D3DC4C31192734220040AD2C /* Image.h */,
+				D3DC4C32192734220040AD2C /* ImageScanner.h */,
+				D3DC4C33192734220040AD2C /* Processor.h */,
+				D3DC4C34192734220040AD2C /* Scanner.h */,
+				D3DC4C35192734220040AD2C /* Symbol.h */,
+				D3DC4C36192734220040AD2C /* Video.h */,
+				D3DC4C37192734220040AD2C /* Window.h */,
+			);
+			path = zbar;
+			sourceTree = "<group>";
+		};
+		D3DC4C43192734220040AD2C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC4C44192734220040AD2C /* zbar-back.png */,
+				D3DC4C45192734220040AD2C /* zbar-help.html */,
+				D3DC4C46192734220040AD2C /* zbar-helpicons.png */,
+				D3DC4C47192734220040AD2C /* zbar-samples.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -741,23 +877,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DC4C2B1927336E0040AD2C /* BrianScanViewController.xib in Resources */,
 				74FA1F6E19249AF3001920A2 /* btn_back@2x.png in Resources */,
 				748F95C51924627800D49728 /* BaseFooterStateView.xib in Resources */,
 				74FA1F6F19249AF3001920A2 /* btn_back_focus@2x.png in Resources */,
 				74FA1F7119249AF3001920A2 /* btn_tip_ok_focus@2x.png in Resources */,
 				748F947B1924625800D49728 /* BrianMainViewController.xib in Resources */,
+				D3DC4C49192734220040AD2C /* zbar-help.html in Resources */,
 				D3C984CA190B9DBB00C5E049 /* cityData.plist in Resources */,
 				D3C98489190B95BC00C5E049 /* InfoPlist.strings in Resources */,
 				748F95C61924627800D49728 /* BaseHeaderStateView.xib in Resources */,
 				748F957C1924627700D49728 /* BaseNoticeView.xib in Resources */,
-				D3C984C8190B986400C5E049 /* BrianPayItemCell.xib in Resources */,
-				D3C984BD190B976900C5E049 /* BrianPayCountViewController.xib in Resources */,
 				74FA1F7019249AF3001920A2 /* btn_tip_ok@2x.png in Resources */,
 				748F957A1924627700D49728 /* BaseChooseView.xib in Resources */,
 				D3C98491190B95BC00C5E049 /* Images.xcassets in Resources */,
+				D3DC4C4B192734220040AD2C /* zbar-samples.png in Resources */,
 				74FA1F6D19249AF3001920A2 /* bg_tip@2x.png in Resources */,
+				D3DC4C48192734220040AD2C /* zbar-back.png in Resources */,
 				748F95811924627700D49728 /* BaseTipView.xib in Resources */,
+				D3DC4C25192733470040AD2C /* BrianPayItemCell.xib in Resources */,
+				D3DC4C23192733470040AD2C /* BrianPayCountViewController.xib in Resources */,
 				74FA1F6C19249AF3001920A2 /* bg_nav@2x.png in Resources */,
+				D3DC4C4A192734220040AD2C /* zbar-helpicons.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +917,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DC4C24192733470040AD2C /* BrianPayItemCell.m in Sources */,
 				748F958B1924627700D49728 /* ICSDrawerController.m in Sources */,
 				74FA1F7419249BF9001920A2 /* BrianDataSource.m in Sources */,
 				D3C984CE190B9DFC00C5E049 /* BrianDataManager.m in Sources */,
@@ -794,13 +936,13 @@
 				748F957E1924627700D49728 /* BaseTableViewController.m in Sources */,
 				748F95CB1924627800D49728 /* BaseNoTouchView.m in Sources */,
 				748F95861924627700D49728 /* DateUtil.m in Sources */,
-				D3C984BC190B976900C5E049 /* BrianPayCountViewController.m in Sources */,
 				748F95891924627700D49728 /* LSHDBModel.m in Sources */,
 				748F95791924627700D49728 /* BaseChooseView.m in Sources */,
 				748F958E1924627700D49728 /* BaseDownLoader.m in Sources */,
 				748F95931924627700D49728 /* BaseImageScrollView.m in Sources */,
 				748F95C71924627800D49728 /* BaseStateView.m in Sources */,
 				748F958D1924627700D49728 /* BaseDiskOperation.m in Sources */,
+				D3DC4C22192733470040AD2C /* BrianPayCountViewController.m in Sources */,
 				748F95821924627700D49728 /* BaseTopTabBarViewController.m in Sources */,
 				748F958C1924627700D49728 /* ICSDropShadowView.m in Sources */,
 				748F95801924627700D49728 /* BaseTipView.m in Sources */,
@@ -814,8 +956,8 @@
 				D3C9848F190B95BC00C5E049 /* BrianAppDelegate.m in Sources */,
 				748F95CF1924627800D49728 /* BaseUtil.m in Sources */,
 				748F95C81924627800D49728 /* BaseTableView.m in Sources */,
-				D3C984C7190B986400C5E049 /* BrianPayItemCell.m in Sources */,
 				748F95921924627700D49728 /* BaseImageDownloader.m in Sources */,
+				D3DC4C2A1927336E0040AD2C /* BrianScanViewController.m in Sources */,
 				748F95991924627700D49728 /* BaseNavigationController.m in Sources */,
 				748F95CC1924627800D49728 /* BaseTouchDisappearView.m in Sources */,
 				748F95961924627700D49728 /* STTweetLabel.m in Sources */,
@@ -900,7 +1042,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -932,7 +1074,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -943,6 +1085,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share",
@@ -956,12 +1099,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MagicalTools/MagicalTools-Prefix.pch";
 				INFOPLIST_FILE = "MagicalTools/MagicalTools-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/push",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/TencentWeiboSDK",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/WeChatSDK",
+					"$(PROJECT_DIR)/MagicalTools/classes/base/ZBar",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -973,6 +1118,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share",
@@ -986,12 +1132,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MagicalTools/MagicalTools-Prefix.pch";
 				INFOPLIST_FILE = "MagicalTools/MagicalTools-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/push",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/TencentWeiboSDK",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/WeChatSDK",
+					"$(PROJECT_DIR)/MagicalTools/classes/base/ZBar",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
