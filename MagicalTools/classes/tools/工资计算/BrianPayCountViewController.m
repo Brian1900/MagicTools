@@ -7,7 +7,6 @@
 //
 
 #import "BrianPayCountViewController.h"
-#import "BrianPayItemCell.h"
 #import "BrianDataSource.h"
 
 @interface BrianPayCountViewController ()
@@ -21,12 +20,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        openOld = YES;
-        openHouse = YES;
-        openBirth = YES;
-        openHurt= YES;
-        openJob = YES;
-        openMed = YES;
     }
     return self;
 }
@@ -48,18 +41,26 @@
 
 - (void)initData
 {
-    nameArray = @[@"养老金",@"医疗",@"失业",@"工伤",@"生育",@"公积金"];
-    currentArray = __dataSource.dataManager.cityDatas;
     selectCityIndex = 0;
+    
+    [self setCurrentCity:selectCityIndex];
 }
 
 - (void)initView
 {
+    
+    
     [self.navigationBar addBackButtonWithTarget:self action:@selector(backButton:)];
+}
+
+- (void)setCurrentCity:(NSInteger)cityIndex
+{
+    
 }
 
 - (IBAction)chooseCity:(id)sender {
     [self.selectView setHidden:NO];
+    self.pickerView.tag = 1;
 }
 
 - (IBAction)startCount:(id)sender {
@@ -79,7 +80,7 @@
 
 - (IBAction)selectCity:(id)sender {
     selectCityIndex = [self.pickerView selectedRowInComponent:0];
-    BrianCityData* model = [currentArray objectAtIndex:selectCityIndex];
+    BrianCityData* model = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
     [self.cityButton setTitle:model.cityName forState:UIControlStateNormal];
     [self.tableView reloadData];
     [self.selectView setHidden:YES];
@@ -89,33 +90,21 @@
 {
     float result = 0.0;
     
-    BrianCityData* cityData = [currentArray objectAtIndex:selectCityIndex];
+    BrianCityData* cityData = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
     
     float oldMoney = 0.0,medMoney = 0.0,jobMoney = 0.0,hurtMoney = 0.0,birthMoney = 0.0,houseMoney = 0.0;
     
-    if (openOld) {
-        oldMoney = money*cityData.selfOld;
-    }
+    oldMoney = money*cityData.selfOld;
     
-    if (openMed) {
-        medMoney = money*cityData.selfMed;
-    }
+    medMoney = money*cityData.selfMed;
     
-    if (openJob) {
-        jobMoney = money*cityData.selfJob;
-    }
+    jobMoney = money*cityData.selfJob;
     
-    if (openHurt) {
-        hurtMoney = money*cityData.selfHurt;
-    }
+    hurtMoney = money*cityData.selfHurt;
     
-    if (openBirth) {
-        birthMoney = money*cityData.selfBirth;
-    }
+    birthMoney = money*cityData.selfBirth;
     
-    if (openHouse) {
-        houseMoney = money*cityData.selfHouse;
-    }
+    houseMoney = money*cityData.selfHouse;
     
     result = money - oldMoney - medMoney - jobMoney - hurtMoney - birthMoney - houseMoney;
     
@@ -131,121 +120,126 @@
     return result;
 }
 
-#pragma mark - BrianPayItemDelegate
-- (void)openChanged:(BrianPayItemCell*)cell
+#pragma mark - UIPickerViewDataSource
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    switch (cell.tag) {
-        case 0:
-        {
-            openOld = cell.isOpen.on;
-        }
-            break;
+    switch (pickerView.tag) {
         case 1:
         {
-            openMed = cell.isOpen.on;
-        }
-            break;
-        case 2:
-        {
-            openJob = cell.isOpen.on;
-        }
-            break;
-        case 3:
-        {
-            openHurt = cell.isOpen.on;
-        }
-            break;
-        case 4:
-        {
-            openBirth = cell.isOpen.on;
-        }
-            break;
-        case 5:
-        {
-            openHouse = cell.isOpen.on;
+            return 1;
         }
             break;
         default:
+            return 4;
             break;
     }
 }
 
-#pragma mark - UIPickerViewDataSource
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [currentArray count];
+    
+    return [__dataSource.dataManager.cityDatas count];
 }
 
 #pragma mark - UIPickerViewDelegate
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    BrianCityData* model = [currentArray objectAtIndex:selectCityIndex];
+    BrianCityData* model = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
     return model.cityName;
 }
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 1:
+        {
+            return self.detailView.frame.size.height;
+        }
+            break;
+        case 2:
+        {
+            return self.settingView.frame.size.height;
+        }
+            break;
+    }
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 1:
+        {
+            return self.detailView;
+        }
+            break;
+        case 2:
+        {
+            return self.settingView;
+        }
+            break;
+    }
+    return nil;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    switch (indexPath.section) {
+        case 0:
+        {
+            return self.cityCell.frame.size.height;
+        }
+            break;
+        case 1:
+        {
+            return self.detailCell.frame.size.height;
+        }
+            break;
+        case 2:
+        {
+            return self.settingCell.frame.size.height;
+        }
+            break;
+        default:
+            return 0;
+            break;
+    }
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [nameArray count];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* cellID = @"BrianPayItemCell";
-    
-    BrianPayItemCell* cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
-    if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:cellID owner:nil options:nil] objectAtIndex:0];
-    }
-    
-    NSString* selfKey = @"selfOld";
-    NSString* comKey = @"comOld";
-    
-    switch (indexPath.row) {
+    switch (indexPath.section) {
+        case 0:
+        {
+            return self.cityCell;
+        }
+            break;
         case 1:
-            selfKey = @"selfMed";
-            comKey = @"comMed";
+        {
+            return self.detailCell;
+        }
             break;
         case 2:
-            selfKey = @"selfMed";
-            comKey = @"comMed";
+        {
+            return self.settingCell;
+        }
             break;
-        case 3:
-            selfKey = @"selfMed";
-            comKey = @"comMed";
-            break;
-        case 4:
-            selfKey = @"selfMed";
-            comKey = @"comMed";
-            break;
-        case 5:
-            selfKey = @"selfMed";
-            comKey = @"comMed";
+        default:
+            return nil;
             break;
     }
-    
-    cell.itemKey.text = [nameArray objectAtIndex:indexPath.row];
-    NSNumber* number = [[currentArray objectAtIndex:selectCityIndex] valueForKey:selfKey];
-    cell.personPay.text = [NSString stringWithFormat:@"%.2f%%",[number floatValue]*100];
-    
-    number = [[currentArray objectAtIndex:selectCityIndex] valueForKey:comKey];
-    cell.companyPay.text = [NSString stringWithFormat:@"%.2f%%",[number floatValue]*100];
-    
-    cell.tag = indexPath.row;
-    
-    return cell;
 }
 
 @end

@@ -88,8 +88,6 @@
 		D3DC4C19192732EB0040AD2C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C18192732EB0040AD2C /* libzbar.a */; };
 		D3DC4C22192733470040AD2C /* BrianPayCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C1C192733470040AD2C /* BrianPayCountViewController.m */; };
 		D3DC4C23192733470040AD2C /* BrianPayCountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C1D192733470040AD2C /* BrianPayCountViewController.xib */; };
-		D3DC4C24192733470040AD2C /* BrianPayItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C20192733470040AD2C /* BrianPayItemCell.m */; };
-		D3DC4C25192733470040AD2C /* BrianPayItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C21192733470040AD2C /* BrianPayItemCell.xib */; };
 		D3DC4C2A1927336E0040AD2C /* BrianScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C281927336E0040AD2C /* BrianScanViewController.m */; };
 		D3DC4C2B1927336E0040AD2C /* BrianScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C291927336E0040AD2C /* BrianScanViewController.xib */; };
 		D3DC4C48192734220040AD2C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C44192734220040AD2C /* zbar-back.png */; };
@@ -249,9 +247,6 @@
 		D3DC4C1B192733470040AD2C /* BrianPayCountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianPayCountViewController.h; sourceTree = "<group>"; };
 		D3DC4C1C192733470040AD2C /* BrianPayCountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianPayCountViewController.m; sourceTree = "<group>"; };
 		D3DC4C1D192733470040AD2C /* BrianPayCountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianPayCountViewController.xib; sourceTree = "<group>"; };
-		D3DC4C1F192733470040AD2C /* BrianPayItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianPayItemCell.h; sourceTree = "<group>"; };
-		D3DC4C20192733470040AD2C /* BrianPayItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianPayItemCell.m; sourceTree = "<group>"; };
-		D3DC4C21192733470040AD2C /* BrianPayItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianPayItemCell.xib; sourceTree = "<group>"; };
 		D3DC4C271927336E0040AD2C /* BrianScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianScanViewController.h; sourceTree = "<group>"; };
 		D3DC4C281927336E0040AD2C /* BrianScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianScanViewController.m; sourceTree = "<group>"; };
 		D3DC4C291927336E0040AD2C /* BrianScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianScanViewController.xib; sourceTree = "<group>"; };
@@ -729,9 +724,6 @@
 		D3DC4C1E192733470040AD2C /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				D3DC4C1F192733470040AD2C /* BrianPayItemCell.h */,
-				D3DC4C20192733470040AD2C /* BrianPayItemCell.m */,
-				D3DC4C21192733470040AD2C /* BrianPayItemCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -895,7 +887,6 @@
 				74FA1F6D19249AF3001920A2 /* bg_tip@2x.png in Resources */,
 				D3DC4C48192734220040AD2C /* zbar-back.png in Resources */,
 				748F95811924627700D49728 /* BaseTipView.xib in Resources */,
-				D3DC4C25192733470040AD2C /* BrianPayItemCell.xib in Resources */,
 				D3DC4C23192733470040AD2C /* BrianPayCountViewController.xib in Resources */,
 				74FA1F6C19249AF3001920A2 /* bg_nav@2x.png in Resources */,
 				D3DC4C4A192734220040AD2C /* zbar-helpicons.png in Resources */,
@@ -917,7 +908,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3DC4C24192733470040AD2C /* BrianPayItemCell.m in Sources */,
 				748F958B1924627700D49728 /* ICSDrawerController.m in Sources */,
 				74FA1F7419249BF9001920A2 /* BrianDataSource.m in Sources */,
 				D3C984CE190B9DFC00C5E049 /* BrianDataManager.m in Sources */,
