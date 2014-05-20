@@ -33,6 +33,8 @@
 
 #pragma mark - 字符宏定义
 
+#define appstore_comment @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=xxx"
+
 #define imageHost @""//@"http://10.10.10.18:8215/gm86app"
 #define gameicon @""//@"http://img.ios114.com"
 #define service_home @"http://m.whzm.cn:8215/gm86app/blog"

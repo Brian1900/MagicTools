@@ -7,7 +7,6 @@
 //
 
 #import "BrianPayCountViewController.h"
-#import "BrianDataSource.h"
 
 @interface BrianPayCountViewController ()
 
@@ -55,7 +54,11 @@
 
 - (void)setCurrentCity:(NSInteger)cityIndex
 {
+    currentModel = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
     
+    if ([self.beforMoney.text integerValue] != 0) {
+        
+    }
 }
 
 - (IBAction)chooseCity:(id)sender {
@@ -71,7 +74,9 @@
         return ;
     }
     
-    self.afterMoney.text = [NSString stringWithFormat:@"%.2lf",[self countMoney:[self.beforMoney.text floatValue]]];
+    [self countMoney:[self.beforMoney.text floatValue]];
+    
+    self.afterMoney.text = [NSString stringWithFormat:@"%.2lf",currentModel.salaryAfter];
 }
 
 - (IBAction)cancelSelectCity:(id)sender {
@@ -80,44 +85,76 @@
 
 - (IBAction)selectCity:(id)sender {
     selectCityIndex = [self.pickerView selectedRowInComponent:0];
-    BrianCityData* model = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
-    [self.cityButton setTitle:model.cityName forState:UIControlStateNormal];
+    [self setCurrentCity:selectCityIndex];
+    
+    [self.cityButton setTitle:currentModel.cityName forState:UIControlStateNormal];
     [self.tableView reloadData];
     [self.selectView setHidden:YES];
 }
 
-- (float)countMoney:(float)money
+- (void)countMoney:(float)money
 {
-    float result = 0.0;
+    CGFloat result = 0;
     
-    BrianCityData* cityData = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
+    [currentModel reset];
     
-    float oldMoney = 0.0,medMoney = 0.0,jobMoney = 0.0,hurtMoney = 0.0,birthMoney = 0.0,houseMoney = 0.0;
+    if (money > currentModel.minSecurity && money < currentModel.maxHouse) {
+        currentModel.baseSecurity = money;
+        currentModel.baseHouse = money;
+    }else if(money > currentModel.maxHouse){
+        currentModel.baseSecurity = currentModel.maxHouse;
+        currentModel.baseHouse = currentModel.maxHouse;
+    }
     
-    oldMoney = money*cityData.selfOld;
+    //个人
+    currentModel.selfPaidOld = currentModel.baseSecurity*currentModel.selfOld;
+    currentModel.selfPaidMed = currentModel.baseSecurity*currentModel.selfMed;
+    currentModel.selfPaidJob = currentModel.baseSecurity*currentModel.selfJob;
+    currentModel.selfPaidHurt = currentModel.baseSecurity*currentModel.selfHurt;
+    currentModel.selfPaidBirth = currentModel.baseSecurity*currentModel.selfBirth;
     
-    medMoney = money*cityData.selfMed;
+    currentModel.selfPaidHouse = currentModel.baseHouse*currentModel.selfHouse;
     
-    jobMoney = money*cityData.selfJob;
+    //公司
+    currentModel.comPaidOld = currentModel.baseSecurity*currentModel.comOld;
+    currentModel.comPaidMed = currentModel.baseSecurity*currentModel.comMed;
+    currentModel.comPaidJob = currentModel.baseSecurity*currentModel.comJob;
+    currentModel.comPaidHurt = currentModel.baseSecurity*currentModel.comHurt;
+    currentModel.comPaidBirth = currentModel.baseSecurity*currentModel.comBirth;
     
-    hurtMoney = money*cityData.selfHurt;
+    currentModel.comPaidHouse = currentModel.baseHouse*currentModel.comHouse;
     
-    birthMoney = money*cityData.selfBirth;
     
-    houseMoney = money*cityData.selfHouse;
+    result = money - currentModel.selfPaidOld - currentModel.selfPaidMed - currentModel.selfPaidJob - currentModel.selfPaidHurt - currentModel.selfPaidBirth - currentModel.selfPaidHouse;
     
-    result = money - oldMoney - medMoney - jobMoney - hurtMoney - birthMoney - houseMoney;
+    currentModel.paidTax = [self countTax:result];
     
-    result = result - [self countTax:result];
-    
-    return result;
+    currentModel.salaryAfter = result - currentModel.paidTax;
 }
 
 - (float)countTax:(float)money
 {
-    float result = 0.0;
+    money = money - currentModel.startTax;
     
-    return result;
+    if (money < 0) {
+        return 0;
+    }
+    
+    if (money <= 1500) {
+        return money * 0.03;
+    }else if (money > 1500 && money <= 4500) {
+        return money * 0.1 - 105;
+    }else if (money > 4500 && money <= 9000) {
+        return money * 0.2 - 555;
+    }else if (money > 9000 && money <= 35000) {
+        return money * 0.25 - 1005;
+    }else if (money > 35000 && money <= 55000) {
+        return money * 0.3 - 2755;
+    }else if (money > 55000 && money <= 80000) {
+        return money * 0.35 - 5505;
+    }else{
+        return money * 0.45 - 13505;
+    }
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -137,15 +174,46 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    
-    return [__dataSource.dataManager.cityDatas count];
+    switch (pickerView.tag) {
+        case 1:
+        {
+            return [__dataSource.dataManager.cityDatas count];
+        }
+            break;
+        default:
+        {
+            switch (component) {
+                case 0:
+                {
+                    return 1;
+                }
+                    break;
+                case 1:
+                {
+                    return 20;
+                }
+                    break;
+                case 2:
+                {
+                    return 1;
+                }
+                    break;
+                case 3:
+                {
+                    return 20;
+                }
+                    break;
+            }
+        }
+            break;
+    }
+    return 0;
 }
 
 #pragma mark - UIPickerViewDelegate
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    BrianCityData* model = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
-    return model.cityName;
+    return currentModel.cityName;
 }
 
 #pragma mark - UITableViewDelegate

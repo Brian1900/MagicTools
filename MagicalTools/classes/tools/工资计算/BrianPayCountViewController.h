@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "BrianDataSource.h"
 
 @interface BrianPayCountViewController : BaseViewController
 {
     NSInteger selectCityIndex;
+    BrianCityData* currentModel;
 }
 
 #pragma mark - city

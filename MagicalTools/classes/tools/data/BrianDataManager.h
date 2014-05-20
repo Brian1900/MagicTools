@@ -20,10 +20,18 @@
 
 @property (nonatomic,strong) NSString* cityName;
 
-@property (nonatomic,assign) NSInteger startMoney;
-@property (nonatomic,assign) NSInteger minMoney;
-@property (nonatomic,assign) NSInteger houseMinMoney;
-@property (nonatomic,assign) NSInteger housemaxMoney;
+@property (nonatomic,assign) NSInteger startTax;
+@property (nonatomic,assign) NSInteger minSecurity;
+@property (nonatomic,assign) NSInteger maxSecurity;
+@property (nonatomic,assign) NSInteger baseSecurity;
+@property (nonatomic,assign) NSInteger minHouse;
+@property (nonatomic,assign) NSInteger maxHouse;
+@property (nonatomic,assign) NSInteger baseHouse;
+
+@property (nonatomic,assign) NSInteger payableTax;
+
+@property (nonatomic,assign) float paidTax;
+@property (nonatomic,assign) float salaryAfter;
 
 @property (nonatomic,assign) float selfOld;
 @property (nonatomic,assign) float selfMed;
@@ -32,6 +40,13 @@
 @property (nonatomic,assign) float selfHurt;
 @property (nonatomic,assign) float selfBirth;
 
+@property (nonatomic,assign) float selfPaidOld;
+@property (nonatomic,assign) float selfPaidMed;
+@property (nonatomic,assign) float selfPaidJob;
+@property (nonatomic,assign) float selfPaidHouse;
+@property (nonatomic,assign) float selfPaidHurt;
+@property (nonatomic,assign) float selfPaidBirth;
+
 @property (nonatomic,assign) float comOld;
 @property (nonatomic,assign) float comMed;
 @property (nonatomic,assign) float comJob;
@@ -39,12 +54,13 @@
 @property (nonatomic,assign) float comBirth;
 @property (nonatomic,assign) float comHouse;
 
+@property (nonatomic,assign) float comPaidOld;
+@property (nonatomic,assign) float comPaidMed;
+@property (nonatomic,assign) float comPaidJob;
+@property (nonatomic,assign) float comPaidHurt;
+@property (nonatomic,assign) float comPaidBirth;
+@property (nonatomic,assign) float comPaidHouse;
 
-
-@end
-
-@interface Brian : NSObject
-
-
+- (void)reset;
 
 @end
