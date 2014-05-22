@@ -10,7 +10,7 @@
 #import "BaseUtil.h"
 #import "BaseNavigationController.h"
 #import "BaseNavigationBar.h"
-//#import "LSHHTTPEngine.h"
+#import "LSHHTTPEngine.h"
 #import "LSHDBManager.h"
 #import "BaseNoTouchView.h"
 #import "BaseNoticeView.h"
@@ -84,6 +84,8 @@ typedef enum {
 - (void)popViewControllerAnimated:(BaseViewController*)vc animated:(BOOL)animated selfAnimated:(BOOL)selfAnimated;
 - (void)popViewControllerAnimated:(BOOL)animated selfAnimated:(BOOL)selfAnimated;
 - (void)popToRootViewControllerAnimated:(BOOL)animated selfAnimated:(BOOL)selfAnimated;
+
+- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail delegate:(id<ASIProgressDelegate>)delegate;
 
 //- (void)presentViewController:(BaseViewController*)vc animated:(BOOL)animated completion:(void (^)(void))completion;
 //- (void)dismissViewControllerAnimated:(BOOL)animated completion: (void (^)(void))completion;
