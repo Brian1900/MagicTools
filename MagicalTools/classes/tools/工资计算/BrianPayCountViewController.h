@@ -14,37 +14,54 @@
 {
     NSInteger selectCityIndex;
     BrianCityData* currentModel;
+    BOOL detialOpen;
+    BOOL settingOpen;
 }
+
+@property (strong, nonatomic) IBOutlet UITableView* tableView;
 
 #pragma mark - city
 @property (strong, nonatomic) IBOutlet UITableViewCell* cityCell;
 
 @property (strong, nonatomic) IBOutlet UIButton* cityButton;
-@property (strong, nonatomic) IBOutlet UITableView* tableView;
 
 @property (strong, nonatomic) IBOutlet UITextField *beforMoney;
-@property (strong, nonatomic) IBOutlet UITextField *afterMoney;
+@property (strong, nonatomic) IBOutlet UILabel *afterMoney;
+@property (strong, nonatomic) IBOutlet UILabel *paidRevenue;
 
 #pragma mark - detail
 @property (strong, nonatomic) IBOutlet UITableViewCell* detailCell;
 
 @property (strong, nonatomic) IBOutlet UIView* detailView;
 
+@property (strong, nonatomic) IBOutlet UILabel* allSelfMoney;
+@property (strong, nonatomic) IBOutlet UILabel* allComMoney;
+
 @property (strong, nonatomic) IBOutlet UIButton* selfOldButton;
+@property (strong, nonatomic) IBOutlet UILabel* selfOldMoney;
 @property (strong, nonatomic) IBOutlet UIButton* comOldButton;
+@property (strong, nonatomic) IBOutlet UILabel* comOldMoney;
 
 @property (strong, nonatomic) IBOutlet UIButton* selfMedButton;
+@property (strong, nonatomic) IBOutlet UILabel* selfMedMoney;
 @property (strong, nonatomic) IBOutlet UIButton* comMedButton;
+@property (strong, nonatomic) IBOutlet UILabel* comMedMoney;
 
 @property (strong, nonatomic) IBOutlet UIButton* selfJobButton;
+@property (strong, nonatomic) IBOutlet UILabel* selfJobMoney;
 @property (strong, nonatomic) IBOutlet UIButton* comJobButton;
+@property (strong, nonatomic) IBOutlet UILabel* comJobMoney;
 
 @property (strong, nonatomic) IBOutlet UIButton* comHurtButton;
+@property (strong, nonatomic) IBOutlet UILabel* comHurtMoney;
 
 @property (strong, nonatomic) IBOutlet UIButton* comBirthButton;
+@property (strong, nonatomic) IBOutlet UILabel* comBirthMoney;
 
 @property (strong, nonatomic) IBOutlet UIButton* selfHouseButton;
+@property (strong, nonatomic) IBOutlet UILabel* selfHouseMoney;
 @property (strong, nonatomic) IBOutlet UIButton* comHouseButton;
+@property (strong, nonatomic) IBOutlet UILabel* comHouseMoney;
 
 #pragma mark - setting
 @property (strong, nonatomic) IBOutlet UITableViewCell* settingCell;
@@ -54,7 +71,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *baseSecurity;
 @property (strong, nonatomic) IBOutlet UITextField *baseHouse;
 @property (strong, nonatomic) IBOutlet UITextField *baseRevenue;
-@property (strong, nonatomic) IBOutlet UITextField *paidRevenue;
+@property (strong, nonatomic) IBOutlet UILabel *basePaidRevenue;
 
 #pragma mark - other
 @property (strong, nonatomic) IBOutlet UIView *selectView;

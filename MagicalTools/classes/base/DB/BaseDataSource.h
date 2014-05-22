@@ -14,6 +14,7 @@
 @interface BaseDataSource : NSObject
 
 @property (assign, nonatomic) BOOL isWIFI;//是否是wifi
+@property (assign, nonatomic) NSInteger viewHeight;
 @property (strong, nonatomic) NSString* ipAddress;
 @property (assign, nonatomic) BOOL isIphone5;
 @property (assign, nonatomic) CGFloat version;//设备版本号

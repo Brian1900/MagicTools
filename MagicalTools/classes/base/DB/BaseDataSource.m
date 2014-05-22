@@ -26,6 +26,9 @@
         
         if (DEVICE_HEIGHT == 568) {
             _isIphone5 = YES;
+            _viewHeight = 568;
+        }else{
+            _viewHeight = 480;
         }
     }
     return self;

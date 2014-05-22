@@ -20,6 +20,8 @@
 
 @property (nonatomic,strong) NSString* cityName;
 
+@property (nonatomic,assign) float salaryBefore;
+
 @property (nonatomic,assign) NSInteger startTax;
 @property (nonatomic,assign) NSInteger minSecurity;
 @property (nonatomic,assign) NSInteger maxSecurity;
@@ -31,6 +33,7 @@
 @property (nonatomic,assign) NSInteger payableTax;
 
 @property (nonatomic,assign) float paidTax;
+@property (nonatomic,assign) float startPaidTax;
 @property (nonatomic,assign) float salaryAfter;
 
 @property (nonatomic,assign) float selfOld;

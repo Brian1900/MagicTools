@@ -68,6 +68,8 @@
     
     self.payableTax = 0;
     self.paidTax = 0.0;
+    self.startPaidTax = 0.0;
+    self.salaryBefore = 0.0;
     self.salaryAfter = 0.0;
     
     self.comPaidOld = 0.0;

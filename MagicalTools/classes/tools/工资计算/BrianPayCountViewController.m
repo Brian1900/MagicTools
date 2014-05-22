@@ -19,6 +19,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        detialOpen = YES;
+        settingOpen = YES;
     }
     return self;
 }
@@ -47,7 +49,7 @@
 
 - (void)initView
 {
-    
+    [self.tableView setFrame:CGRectMake(0,self.startY + Navigation_Height, 320, __dataSource.viewHeight - 64)];
     
     [self.navigationBar addBackButtonWithTarget:self action:@selector(backButton:)];
 }
@@ -57,7 +59,7 @@
     currentModel = [__dataSource.dataManager.cityDatas objectAtIndex:selectCityIndex];
     
     if ([self.beforMoney.text integerValue] != 0) {
-        
+        [self startCount:nil];
     }
 }
 
@@ -75,8 +77,21 @@
     }
     
     [self countMoney:[self.beforMoney.text floatValue]];
+    [self refreshView];
     
     self.afterMoney.text = [NSString stringWithFormat:@"%.2lf",currentModel.salaryAfter];
+}
+
+- (IBAction)showMore:(UIButton*)button {
+    if (button.tag == 1) {
+        detialOpen = !detialOpen;
+    }
+    
+    if (button.tag == 2) {
+        settingOpen = !settingOpen;
+    }
+    
+    [self.tableView reloadData];
 }
 
 - (IBAction)cancelSelectCity:(id)sender {
@@ -106,6 +121,8 @@
         currentModel.baseHouse = currentModel.maxHouse;
     }
     
+    currentModel.salaryBefore = money;
+    
     //个人
     currentModel.selfPaidOld = currentModel.baseSecurity*currentModel.selfOld;
     currentModel.selfPaidMed = currentModel.baseSecurity*currentModel.selfMed;
@@ -132,13 +149,64 @@
     currentModel.salaryAfter = result - currentModel.paidTax;
 }
 
+- (void)refreshView
+{
+    //输入
+    self.afterMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.salaryAfter];
+    
+    self.paidRevenue.text = [NSString stringWithFormat:@"%.2f",currentModel.paidTax];
+    
+    //详情
+    self.allSelfMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidOld + currentModel.selfPaidMed + currentModel.selfPaidJob + currentModel.selfPaidHouse];
+    
+    self.allComMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidOld + currentModel.comPaidMed + currentModel.comPaidJob + currentModel.comPaidHurt + currentModel.comPaidBirth + currentModel.comPaidHouse];
+    
+    self.selfOldMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidOld];
+    [self.selfOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfOld * 100] forState:UIControlStateNormal];
+    self.comOldMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidOld];
+    [self.comOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comOld * 100] forState:UIControlStateNormal];
+    
+    self.selfMedMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidMed];
+    [self.selfMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfMed * 100] forState:UIControlStateNormal];
+    self.comMedMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidMed];
+    [self.comMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comMed * 100] forState:UIControlStateNormal];
+    
+    self.selfJobMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidJob];
+    [self.selfJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfJob * 100] forState:UIControlStateNormal];
+    self.comJobMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidJob];
+    [self.comJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comJob * 100] forState:UIControlStateNormal];
+    
+    self.comHurtMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidHurt];
+    [self.comHurtButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comHurt * 100] forState:UIControlStateNormal];
+    
+    self.comBirthMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidBirth];
+    [self.comBirthButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comBirth * 100] forState:UIControlStateNormal];
+    
+    self.selfHouseMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidHouse];
+    [self.selfHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfHouse * 100] forState:UIControlStateNormal];
+    self.comHouseMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidHouse];
+    [self.comHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comHouse * 100] forState:UIControlStateNormal];
+    
+    //起征点
+    self.baseSecurity.text = [NSString stringWithFormat:@"%d",currentModel.baseSecurity];
+    
+    self.baseHouse.text = [NSString stringWithFormat:@"%d",currentModel.baseHouse];
+    
+    self.baseRevenue.text = [NSString stringWithFormat:@"%d",currentModel.startTax];
+    
+    self.basePaidRevenue.text = [NSString stringWithFormat:@"%.2f",currentModel.startPaidTax];
+}
+
 - (float)countTax:(float)money
 {
     money = money - currentModel.startTax;
     
     if (money < 0) {
+        currentModel.startPaidTax = 0;
         return 0;
     }
+    
+    currentModel.startPaidTax = money;
     
     if (money <= 1500) {
         return money * 0.03;
@@ -155,6 +223,14 @@
     }else{
         return money * 0.45 - 13505;
     }
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    
+    return YES;
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -222,12 +298,20 @@
     switch (section) {
         case 1:
         {
-            return self.detailView.frame.size.height;
+//            if (detialOpen) {
+                return self.detailView.frame.size.height;
+//            }else{
+//                return 0;
+//            }
         }
             break;
         case 2:
         {
-            return self.settingView.frame.size.height;
+//            if (settingOpen) {
+                return self.settingView.frame.size.height;
+//            }else{
+//                return 0;
+//            }
         }
             break;
     }
@@ -261,6 +345,11 @@
             break;
         case 1:
         {
+//            if (detialOpen) {
+//                return self.detailView.frame.size.height;
+//            }else{
+//                return 0;
+//            }
             return self.detailCell.frame.size.height;
         }
             break;
@@ -283,7 +372,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    switch (section) {
+        case 0:
+        {
+            return 1;
+        }
+            break;
+        case 1:
+        {
+            if (detialOpen) {
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+            break;
+        case 2:
+        {
+            if (settingOpen) {
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+            break;
+        default:
+            return 1;
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
