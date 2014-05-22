@@ -49,6 +49,8 @@
 
 - (void)initView
 {
+    [self.navigationBar setTitle:@"工资计算器"];
+    
     [self.tableView setFrame:CGRectMake(0,self.startY + Navigation_Height, 320, __dataSource.viewHeight - 64)];
     
     [self.navigationBar addBackButtonWithTarget:self action:@selector(backButton:)];
