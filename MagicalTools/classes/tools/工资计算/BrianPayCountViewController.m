@@ -65,14 +65,41 @@
     }
 }
 
+- (void)viewTapped:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
+}
+
 - (IBAction)chooseCity:(id)sender {
+    pickerType = 0;
+    
+    [self.pickerView reloadAllComponents];
     [self.selectView setHidden:NO];
-    self.pickerView.tag = 1;
+}
+
+- (IBAction)editPercent:(UIButton*)button {
+    currentPercnetButton = button;
+    pickerType = 1;
+    pickPercentType = button.tag;
+    
+    [self.pickerView reloadAllComponents];
+    [self.selectView setHidden:NO];
+    
+    NSString* title = [button titleForState:UIControlStateNormal];
+    
+    CGFloat percent = [[title substringToIndex:title.length-1] floatValue];
+    
+    NSInteger x = percent/1;
+    
+    [self.pickerView selectRow:x inComponent:0 animated:YES];
+    
+    NSInteger y = ((percent-x)*100/10);
+    
+    [self.pickerView selectRow:y inComponent:1 animated:YES];
 }
 
 - (IBAction)startCount:(id)sender {
     [self.beforMoney resignFirstResponder];
-    [self.afterMoney resignFirstResponder];
     
     if ([self.beforMoney.text integerValue] == 0) {
         return ;
@@ -96,15 +123,33 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)cancelSelectCity:(id)sender {
+- (IBAction)cancelPickerView:(id)sender {
     [self.selectView setHidden:YES];
 }
 
-- (IBAction)selectCity:(id)sender {
-    selectCityIndex = [self.pickerView selectedRowInComponent:0];
-    [self setCurrentCity:selectCityIndex];
+- (IBAction)submitPickerView:(id)sender {
+    switch (pickerType) {
+        case 0:
+        {
+            selectCityIndex = [self.pickerView selectedRowInComponent:0];
+            [self setCurrentCity:selectCityIndex];
+            
+            [self.cityButton setTitle:currentModel.cityName forState:UIControlStateNormal];
+        }
+            break;
+        case 1:
+        {
+            NSInteger tenNum = [self.pickerView selectedRowInComponent:0];
+            
+            NSInteger pointNum = [self.pickerView selectedRowInComponent:1];
+            
+            [currentPercnetButton setTitle:[NSString stringWithFormat:@"%.1f%%",tenNum*1+pointNum*0.1] forState:UIControlStateNormal];
+        }
+            break;
+        default:
+            break;
+    }
     
-    [self.cityButton setTitle:currentModel.cityName forState:UIControlStateNormal];
     [self.tableView reloadData];
     [self.selectView setHidden:YES];
 }
@@ -230,7 +275,30 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self.view endEditing:YES];
+    NSInteger num = [textField.text integerValue];
+    
+    switch (textField.tag) {
+        case 0:
+        {
+            [self startCount:nil];
+        }
+            break;
+        case 1:
+        {
+            currentModel.baseSecurity = num;
+        }
+            break;
+        case 2:
+        {
+            currentModel.baseHouse = num;
+        }
+            break;
+        case 3:
+        {
+            currentModel.startTax = num;
+        }
+            break;
+    }
     
     return YES;
 }
@@ -238,22 +306,22 @@
 #pragma mark - UIPickerViewDataSource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    switch (pickerView.tag) {
-        case 1:
+    switch (pickerType) {
+        case 0:
         {
             return 1;
         }
             break;
         default:
-            return 4;
+            return 2;
             break;
     }
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    switch (pickerView.tag) {
-        case 1:
+    switch (pickerType) {
+        case 0:
         {
             return [__dataSource.dataManager.cityDatas count];
         }
@@ -263,22 +331,12 @@
             switch (component) {
                 case 0:
                 {
-                    return 1;
+                    return 21;
                 }
                     break;
                 case 1:
                 {
-                    return 20;
-                }
-                    break;
-                case 2:
-                {
-                    return 1;
-                }
-                    break;
-                case 3:
-                {
-                    return 20;
+                    return 10;
                 }
                     break;
             }
@@ -291,7 +349,31 @@
 #pragma mark - UIPickerViewDelegate
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return currentModel.cityName;
+    switch (pickerType) {
+        case 0:
+        {
+            BrianCityData* data = [__dataSource.dataManager.cityDatas objectAtIndex:row];
+            return data.cityName;
+        }
+            break;
+        default:
+            switch (component) {
+                case 0:
+                {
+                    return [NSString stringWithFormat:@"%d",row * 1];
+                }
+                    break;
+                case 1:
+                {
+                    return [NSString stringWithFormat:@".%d%%",row];
+                }
+                    break;
+                default:
+                    break;
+            }
+            break;
+    }
+    return @"";
 }
 
 #pragma mark - UITableViewDelegate
