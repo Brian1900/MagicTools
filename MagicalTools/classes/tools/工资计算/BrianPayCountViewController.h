@@ -10,12 +10,30 @@
 #import "BaseViewController.h"
 #import "BrianDataSource.h"
 
+typedef enum {
+    ePickerTypeSelfOld = 0,
+    ePickerTypeSelfMed = 1,
+    ePickerTypeSelfJob = 2,
+    ePickerTypeSelfHouse = 3,
+    
+    ePickerTypeComOld = 4,
+    ePickerTypeComMen = 5,
+    ePickerTypeComJob = 6,
+    ePickerTypeComHurt = 7,
+    ePickerTypeComBirth = 8,
+    ePickerTypeComHouse = 9
+}ePickerType;
+
 @interface BrianPayCountViewController : BaseViewController
 {
     NSInteger selectCityIndex;
     BrianCityData* currentModel;
     BOOL detialOpen;
     BOOL settingOpen;
+    
+    NSInteger pickerType; //0:城市 1：百分比
+    ePickerType pickPercentType;
+    UIButton* currentPercnetButton;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView* tableView;

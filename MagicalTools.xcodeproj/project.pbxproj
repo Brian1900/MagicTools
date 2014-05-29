@@ -128,7 +128,6 @@
 		D3C984A4190B95BD00C5E049 /* MagicalToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C984A3190B95BD00C5E049 /* MagicalToolsTests.m */; };
 		D3C984CA190B9DBB00C5E049 /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3C984C9190B9DBB00C5E049 /* cityData.plist */; };
 		D3C984CE190B9DFC00C5E049 /* BrianDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C984CD190B9DFC00C5E049 /* BrianDataManager.m */; };
-		D3DC4C19192732EB0040AD2C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C18192732EB0040AD2C /* libzbar.a */; };
 		D3DC4C22192733470040AD2C /* BrianPayCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C1C192733470040AD2C /* BrianPayCountViewController.m */; };
 		D3DC4C23192733470040AD2C /* BrianPayCountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DC4C1D192733470040AD2C /* BrianPayCountViewController.xib */; };
 		D3DC4C2A1927336E0040AD2C /* BrianScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC4C281927336E0040AD2C /* BrianScanViewController.m */; };
@@ -413,7 +412,6 @@
 				D3DC4C4D1927369B0040AD2C /* libiconv.dylib in Frameworks */,
 				7405F45F1925A5C400BFC99F /* libz.1.2.5.dylib in Frameworks */,
 				7405F45D1925A5BF00BFC99F /* libstdc++.dylib in Frameworks */,
-				D3DC4C19192732EB0040AD2C /* libzbar.a in Frameworks */,
 				7405F45B1925A5B700BFC99F /* libsqlite3.dylib in Frameworks */,
 				7405F4591925A56A00BFC99F /* CFNetwork.framework in Frameworks */,
 				7405F4571925A56200BFC99F /* CoreTelephony.framework in Frameworks */,
@@ -450,6 +448,7 @@
 		748F947C1924627700D49728 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				D3890F621930A3EB00793028 /* text */,
 				74FC491D192D9FD200862399 /* ASIHttpRequest */,
 				74FC4913192D9F9700862399 /* Network */,
 				D3DC4C17192732EB0040AD2C /* ZBar */,
@@ -886,6 +885,13 @@
 				74FC4954192D9FD200862399 /* ASIS3ServiceRequest.m */,
 			);
 			path = S3;
+			sourceTree = "<group>";
+		};
+		D3890F621930A3EB00793028 /* text */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = text;
 			sourceTree = "<group>";
 		};
 		D3C98472190B95BC00C5E049 = {
@@ -1378,9 +1384,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv6 armv7s";
 			};
 			name = Debug;
 		};
@@ -1410,15 +1417,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv6 armv7s";
 			};
 			name = Release;
 		};
 		D3C984A8190B95BD00C5E049 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1440,7 +1450,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "MagicalTools/MagicalTools-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/push",
@@ -1449,7 +1459,10 @@
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/ZBar",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1457,6 +1470,7 @@
 		D3C984A9190B95BD00C5E049 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1478,7 +1492,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "MagicalTools/MagicalTools-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/push",
@@ -1487,7 +1501,10 @@
 					"$(PROJECT_DIR)/MagicalTools/classes/base/share/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/MagicalTools/classes/base/ZBar",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

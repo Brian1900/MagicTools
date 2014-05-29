@@ -47,32 +47,32 @@
 		<string>上海</string>
 		<key>startTax</key>
 		<integer>3500</integer>
-		<key>startSecurity</key>
-		<integer>3134</integer>
-		<key>housemaxMoney</key>
-		<integer>1560</integer>
-		<key>houseMinMoney</key>
-		<integer>15669</integer>
+		<key>minSecurity</key>
+		<integer>3022</integer>
+		<key>minHouse</key>
+		<integer>1820</integer>
+		<key>maxHouse</key>
+		<integer>15108</integer>
 		<key>selfOld</key>
 		<real>0.08</real>
 		<key>selfMed</key>
 		<real>0.02</real>
 		<key>selfJob</key>
-		<real>0.002</real>
+		<real>0.005</real>
 		<key>selfHouse</key>
-		<real>0.12</real>
+		<real>0.07000000000000001</real>
 		<key>comOld</key>
-		<real>0.2</real>
+		<real>0.21</real>
 		<key>comMed</key>
-		<real>0.1</real>
+		<real>0.11</real>
 		<key>comJob</key>
-		<real>0.01</real>
+		<real>0.015</real>
 		<key>comHurt</key>
-		<real>0.003</real>
+		<real>0.005</real>
 		<key>comBirth</key>
-		<real>0.008</real>
+		<real>0.01</real>
 		<key>comHouse</key>
-		<real>0.12</real>
+		<real>0.07000000000000001</real>
 	</dict>
 </array>
 </plist>
