@@ -17,12 +17,7 @@
 
 + (id)getInstance;
 
-- (void)httpGetWithURL:(NSString*)url dictionary:(NSDictionary*)dictionary success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;
-- (void)httpPostWithURL:(NSString*)urlNSString dictionary:(NSDictionary*)dictionary file:(NSDictionary*)filePathDic headDic:headDic success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;
-
-//- (void)httpPostWithURL:(NSString*)urlNSString dictionary:(NSDictionary*)dictionary file:(NSDictionary*)filePathDic headDic:headDic success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;
-
-- (void)httpPostDataProcessWithURL:(NSString*)urlNSString dictionary:(NSDictionary*)dictionary file:(NSDictionary*)filePathDic headDic:headDic success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail uploadDelegate:(id<ASIProgressDelegate>)delegate;
+- (void)httpGetWithURL:(NSString*)url success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;
 
 - (NSDictionary*)serObject:(id)object;
 - (NSDictionary*)serFileData:(id)object;

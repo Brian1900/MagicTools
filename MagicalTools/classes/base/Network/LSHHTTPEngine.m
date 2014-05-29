@@ -44,8 +44,56 @@ static LSHHTTPEngine* LSHHttpEngine = nil;
     return self;
 }
 
-
-
-
+- (void)sendGetExchange:(BrianExchangeRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail
+{
+    [_httpEngine httpGetWithURL:[NSString stringWithFormat:request.url,request.beforeType,request.afterType]  success:^(id sender)
+     {
+         ASIHTTPRequest* request = sender;
+         
+         NSString* string = [[NSString alloc] initWithData:request.postBody encoding:NSUTF8StringEncoding];
+         TLog(@"sendGetExchange header = [%@] body = [%@]",request.requestHeaders, string);
+         
+         NSData* data = [request responseData];
+         NSMutableString* json = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] mutableCopy];//
+         
+         TLog(@"sendGetExchange sendUpdate Response Data = [%@]",json);
+         
+//         NSError* error = nil;
+//         
+//         NSDictionary *weatherDic = nil;
+//         @try {
+//             weatherDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+//         }
+//         @catch (NSException *exception) {
+//             fail(sender);
+//         }
+//         @finally {
+//             
+//         }
+//         
+//         if (error) {
+//             TLog(@"sendGetExchange fail json error");
+//             fail(sender);
+//         }else{
+//             gm861ClientUpdateResponse* response = [[gm861ClientUpdateResponse alloc] init];
+//             
+//             response.status = [[weatherDic objectForKey:@"status"] integerValue];
+//             response.errorMessage = [weatherDic objectForKey:@"errorMessage"];
+//             
+//             if (response.status == 0) {
+//                 fail(response);
+//             }else{
+//                 response.version = [weatherDic objectForKey:@"version"];
+//                 response.clientURL = [weatherDic objectForKey:@"clientURL"];
+//                 
+//                 success(response);
+//             }
+//         }
+     }fail:^(id sender)
+     {
+         TLog(@"sendGetExchange fail");
+         fail(nil);
+     }];
+}
 
 @end

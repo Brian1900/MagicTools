@@ -32,6 +32,13 @@
 #pragma mark - detail
 @property (strong, nonatomic) IBOutlet UITableViewCell* detailCell;
 
+@property (strong, nonatomic) IBOutlet UIButton* oldCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* medCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* jobCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* hurtCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* birthCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* houseCheckButton;
+
 @property (strong, nonatomic) IBOutlet UIView* detailView;
 
 @property (strong, nonatomic) IBOutlet UILabel* allSelfMoney;

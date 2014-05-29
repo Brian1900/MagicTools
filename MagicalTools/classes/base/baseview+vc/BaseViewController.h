@@ -50,7 +50,7 @@ typedef enum {
 @property (strong, nonatomic) BaseViewController* nextViewController;
 
 @property (strong, nonatomic) BaseNavigationBar *navigationBar;
-//@property (strong, nonatomic) LSHHTTPEngine* httpEngine;
+@property (strong, nonatomic) LSHHTTPEngine* httpEngine;
 @property (strong, nonatomic) BaseNavigationController* navigationVC;
 
 @property (strong, nonatomic) BaseNoTouchView* backGroundView;
@@ -85,13 +85,13 @@ typedef enum {
 - (void)popViewControllerAnimated:(BOOL)animated selfAnimated:(BOOL)selfAnimated;
 - (void)popToRootViewControllerAnimated:(BOOL)animated selfAnimated:(BOOL)selfAnimated;
 
-- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail delegate:(id<ASIProgressDelegate>)delegate;
+//- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail delegate:(id<ASIProgressDelegate>)delegate;
 
 //- (void)presentViewController:(BaseViewController*)vc animated:(BOOL)animated completion:(void (^)(void))completion;
 //- (void)dismissViewControllerAnimated:(BOOL)animated completion: (void (^)(void))completion;
 
 //- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail delegate:(id<ASIProgressDelegate>)delegate;
-//- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;
+- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;
 //- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail showTip:(BOOL)showTip;
 
 @end

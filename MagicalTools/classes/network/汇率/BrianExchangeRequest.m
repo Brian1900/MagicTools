@@ -14,7 +14,7 @@
 {
 	self = [super init];
     
-    self.url = @"http://download.finance.yahoo.com/d/quotes.html?s=%@=X&f=sl1d1t1ba&e=.html";
+    self.url = @"http://download.finance.yahoo.com/d/quotes.html?s=%@%@=X&f=sl1d1t1ba&e=.html";
     
     return self;
 }
