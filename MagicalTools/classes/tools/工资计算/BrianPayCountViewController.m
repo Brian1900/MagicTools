@@ -114,10 +114,20 @@
 - (IBAction)showMore:(UIButton*)button {
     if (button.tag == 1) {
         detialOpen = !detialOpen;
+        if (detialOpen) {
+            self.detailArrow.image = [UIImage imageNamed:@"img_detail_open.png"];
+        }else{
+            self.detailArrow.image = [UIImage imageNamed:@"img_detail_close.png"];
+        }
     }
     
     if (button.tag == 2) {
         settingOpen = !settingOpen;
+        if (settingOpen) {
+            self.settingArrow.image = [UIImage imageNamed:@"img_detail_open.png"];
+        }else{
+            self.settingArrow.image = [UIImage imageNamed:@"img_detail_close.png"];
+        }
     }
     
     [self.tableView reloadData];

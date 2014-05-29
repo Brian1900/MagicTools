@@ -24,6 +24,8 @@
 
 - (NSString*)reuseIdentifier
 {
+    NSLog(@"%d",self.tag);
+    
     return [NSString stringWithFormat:@"BrianExchangeTableViewCell_%ld",(long)self.tag];
 }
 

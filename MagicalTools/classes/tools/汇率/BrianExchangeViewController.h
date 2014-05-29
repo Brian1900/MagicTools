@@ -10,4 +10,6 @@
 
 @interface BrianExchangeViewController : BaseViewController
 
+@property (nonatomic,strong) IBOutlet UITableView* tableView;
+
 @end

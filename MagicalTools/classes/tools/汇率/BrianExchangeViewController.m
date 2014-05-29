@@ -28,12 +28,29 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self initData];
+    [self initView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)initData
+{
+    
+}
+
+- (void)initView
+{
+    [self.navigationBar setTitle:@"汇率"];
+    
+    [self.tableView setFrame:CGRectMake(0,self.startY + Navigation_Height, 320, __dataSource.viewHeight - 64)];
+    
+    [self.navigationBar addBackButtonWithTarget:self action:@selector(backButton:)];
 }
 
 #pragma mark - UITableViewDelegate
@@ -51,6 +68,29 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+        {
+            return @"常用";
+        }
+            break;
+        case 1:
+        {
+            return @"亚洲";
+        }
+            break;
+        case 2:
+        {
+            return @"欧洲";
+        }
+            break;
+    }
+    
+    return @"";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -71,6 +111,8 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:cellID owner:nil options:nil] objectAtIndex:0];
     }
+    
+    cell.tag = indexPath.section * 100 + indexPath.row;
     
     return cell;
 }

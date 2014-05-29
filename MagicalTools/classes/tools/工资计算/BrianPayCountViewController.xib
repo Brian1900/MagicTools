@@ -30,6 +30,7 @@
                 <outlet property="comMedMoney" destination="my0-HI-0I9" id="Ace-Wu-iez"/>
                 <outlet property="comOldButton" destination="c2z-5f-cxV" id="xss-D8-FPH"/>
                 <outlet property="comOldMoney" destination="lz0-Gp-wVB" id="3fV-od-sHi"/>
+                <outlet property="detailArrow" destination="2Ud-cl-OnD" id="5rh-Dd-NFc"/>
                 <outlet property="detailCell" destination="a81-dH-2h6" id="rce-4U-3vD"/>
                 <outlet property="detailView" destination="KMe-Hd-ON3" id="Z2k-VU-547"/>
                 <outlet property="houseCheckButton" destination="ImE-Ug-jys" id="Uar-NH-cPM"/>
@@ -48,6 +49,7 @@
                 <outlet property="selfMedMoney" destination="BTS-bd-w7i" id="VxL-X0-MQg"/>
                 <outlet property="selfOldButton" destination="FB6-S5-Hbi" id="ga2-Uq-Tlg"/>
                 <outlet property="selfOldMoney" destination="O32-Uc-tnY" id="jew-O1-2uB"/>
+                <outlet property="settingArrow" destination="k0w-Vm-amV" id="Q6z-uq-l9x"/>
                 <outlet property="settingCell" destination="8o4-tL-yRm" id="edc-K3-TOC"/>
                 <outlet property="settingView" destination="JBm-v3-IgT" id="glp-3k-xPV"/>
                 <outlet property="tableView" destination="WRT-3u-GTD" id="S4H-ec-otV"/>
@@ -638,7 +640,7 @@
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TLY-x0-qii">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal">
+                    <state key="normal" backgroundImage="bg_money_head.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -651,12 +653,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_detail_close.png" id="2Ud-cl-OnD">
-                    <rect key="frame" x="166" y="14" width="7" height="11"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_detail_open.png" id="2Ud-cl-OnD">
+                    <rect key="frame" x="166" y="14" width="11" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.94509810209274292" green="0.94509810209274292" blue="0.94509810209274292" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="JBm-v3-IgT">
@@ -666,7 +668,7 @@
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RDm-3p-tQ2">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal">
+                    <state key="normal" backgroundImage="bg_money_head.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -680,22 +682,22 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_detail_open.png" id="k0w-Vm-amV">
-                    <rect key="frame" x="142" y="16" width="10" height="7"/>
+                    <rect key="frame" x="142" y="14" width="11" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.9450981021" green="0.9450981021" blue="0.9450981021" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
+        <image name="bg_money_head.png" width="320" height="41"/>
         <image name="bg_money_input.png" width="40" height="22"/>
         <image name="btn_city.png" width="64" height="30"/>
         <image name="btn_count.png" width="300" height="40"/>
         <image name="btn_count_focus.png" width="300" height="40"/>
         <image name="btn_money_check_no.png" width="35" height="35"/>
         <image name="btn_money_check_yes.png" width="35" height="35"/>
-        <image name="img_detail_close.png" width="11" height="11"/>
         <image name="img_detail_open.png" width="11" height="11"/>
     </resources>
 </document>
