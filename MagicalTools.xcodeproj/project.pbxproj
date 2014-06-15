@@ -97,6 +97,8 @@
 		74FC496A192D9FD200862399 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FC4952192D9FD200862399 /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74FC496B192D9FD200862399 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FC4954192D9FD200862399 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74FC496D192DA0FE00862399 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FC496C192DA0FE00862399 /* libxml2.2.dylib */; };
+		D3890F6A1930A69B00793028 /* BrianExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3890F681930A69B00793028 /* BrianExchangeViewController.m */; };
+		D3890F6B1930A69B00793028 /* BrianExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3890F691930A69B00793028 /* BrianExchangeViewController.xib */; };
 		D3C9847F190B95BC00C5E049 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C9847E190B95BC00C5E049 /* Foundation.framework */; };
 		D3C98481190B95BC00C5E049 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C98480190B95BC00C5E049 /* CoreGraphics.framework */; };
 		D3C98483190B95BC00C5E049 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C98482190B95BC00C5E049 /* UIKit.framework */; };
@@ -317,6 +319,9 @@
 		74FC4953192D9FD200862399 /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
 		74FC4954192D9FD200862399 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
 		74FC496C192DA0FE00862399 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		D3890F671930A69B00793028 /* BrianExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianExchangeViewController.h; sourceTree = "<group>"; };
+		D3890F681930A69B00793028 /* BrianExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianExchangeViewController.m; sourceTree = "<group>"; };
+		D3890F691930A69B00793028 /* BrianExchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianExchangeViewController.xib; sourceTree = "<group>"; };
 		D3C9847B190B95BC00C5E049 /* MagicalTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicalTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C9847E190B95BC00C5E049 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D3C98480190B95BC00C5E049 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -820,6 +825,24 @@
 			path = text;
 			sourceTree = "<group>";
 		};
+		D3890F661930A67400793028 /* 汇率 */ = {
+			isa = PBXGroup;
+			children = (
+				D3890F6C1930A6B200793028 /* cell */,
+				D3890F671930A69B00793028 /* BrianExchangeViewController.h */,
+				D3890F681930A69B00793028 /* BrianExchangeViewController.m */,
+				D3890F691930A69B00793028 /* BrianExchangeViewController.xib */,
+			);
+			path = "汇率";
+			sourceTree = "<group>";
+		};
+		D3890F6C1930A6B200793028 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		D3C98472190B95BC00C5E049 = {
 			isa = PBXGroup;
 			children = (
@@ -917,6 +940,7 @@
 		D3C984B6190B973F00C5E049 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				D3890F661930A67400793028 /* 汇率 */,
 				D3DC4C261927335A0040AD2C /* 扫描 */,
 				D3DC4C1A192733470040AD2C /* 工资计算 */,
 				D3C984CB190B9DEA00C5E049 /* data */,
@@ -1141,6 +1165,7 @@
 				748F95C61924627800D49728 /* BaseHeaderStateView.xib in Resources */,
 				D3CB979D192E28FD00373A66 /* btn_count_focus@2x.png in Resources */,
 				748F957C1924627700D49728 /* BaseNoticeView.xib in Resources */,
+				D3890F6B1930A69B00793028 /* BrianExchangeViewController.xib in Resources */,
 				74FA1F7019249AF3001920A2 /* btn_tip_ok@2x.png in Resources */,
 				748F957A1924627700D49728 /* BaseChooseView.xib in Resources */,
 				D3C98491190B95BC00C5E049 /* Images.xcassets in Resources */,
@@ -1226,6 +1251,7 @@
 				74FC4969192D9FD200862399 /* ASIS3ObjectRequest.m in Sources */,
 				74FC4966192D9FD200862399 /* ASIS3Bucket.m in Sources */,
 				748F95CF1924627800D49728 /* BaseUtil.m in Sources */,
+				D3890F6A1930A69B00793028 /* BrianExchangeViewController.m in Sources */,
 				74FC490E192D9DD100862399 /* NetWorkBase.m in Sources */,
 				74FC491B192D9F9700862399 /* BaseHttpEngine.m in Sources */,
 				74FC4963192D9FD200862399 /* ASICloudFilesObjectRequest.m in Sources */,
