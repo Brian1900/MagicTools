@@ -13,7 +13,6 @@
 		7405F45D1925A5BF00BFC99F /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7405F45C1925A5BF00BFC99F /* libstdc++.dylib */; };
 		7405F45F1925A5C400BFC99F /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7405F45E1925A5C400BFC99F /* libz.1.2.5.dylib */; };
 		748F947A1924625800D49728 /* BrianMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748F94781924625800D49728 /* BrianMainViewController.m */; };
-		748F947B1924625800D49728 /* BrianMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748F94791924625800D49728 /* BrianMainViewController.xib */; };
 		748F95791924627700D49728 /* BaseChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 748F94B71924627700D49728 /* BaseChooseView.m */; };
 		748F957A1924627700D49728 /* BaseChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748F94B81924627700D49728 /* BaseChooseView.xib */; };
 		748F957B1924627700D49728 /* BaseNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 748F94BA1924627700D49728 /* BaseNoticeView.m */; };
@@ -64,10 +63,6 @@
 		748F95CD1924627800D49728 /* SvUDIDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 748F955A1924627700D49728 /* SvUDIDTools.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		748F95CF1924627800D49728 /* BaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 748F955F1924627700D49728 /* BaseUtil.m */; };
 		748F95D01924627800D49728 /* IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 748F95611924627700D49728 /* IPAddress.m */; };
-		74EFF699192EE50700D46195 /* BrianExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF697192EE50700D46195 /* BrianExchangeViewController.m */; };
-		74EFF69A192EE50700D46195 /* BrianExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74EFF698192EE50700D46195 /* BrianExchangeViewController.xib */; };
-		74EFF69F192EE63600D46195 /* BrianExchangeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF69D192EE63600D46195 /* BrianExchangeTableViewCell.m */; };
-		74EFF6A0192EE63600D46195 /* BrianExchangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74EFF69E192EE63600D46195 /* BrianExchangeTableViewCell.xib */; };
 		74FA1A681936D3F10070173A /* bg_money_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FA1A651936D3F10070173A /* bg_money_head@2x.png */; };
 		74FA1A691936D3F10070173A /* btn_money_check_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FA1A661936D3F10070173A /* btn_money_check_no@2x.png */; };
 		74FA1A6A1936D3F10070173A /* btn_money_check_yes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FA1A671936D3F10070173A /* btn_money_check_yes@2x.png */; };
@@ -116,6 +111,10 @@
 		74FC496D192DA0FE00862399 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FC496C192DA0FE00862399 /* libxml2.2.dylib */; };
 		D3890F6A1930A69B00793028 /* BrianExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3890F681930A69B00793028 /* BrianExchangeViewController.m */; };
 		D3890F6B1930A69B00793028 /* BrianExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3890F691930A69B00793028 /* BrianExchangeViewController.xib */; };
+		D39407ED194D6CB500CECEFE /* BrianExchangeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D39407EB194D6CB500CECEFE /* BrianExchangeTableViewCell.m */; };
+		D39407EE194D6CB500CECEFE /* BrianExchangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39407EC194D6CB500CECEFE /* BrianExchangeTableViewCell.xib */; };
+		D39407F0194D6DCC00CECEFE /* BrianMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39407EF194D6DCC00CECEFE /* BrianMainViewController.xib */; };
+		D39407F1194D6FC500CECEFE /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DC4C18192732EB0040AD2C /* libzbar.a */; };
 		D3C9847F190B95BC00C5E049 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C9847E190B95BC00C5E049 /* Foundation.framework */; };
 		D3C98481190B95BC00C5E049 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C98480190B95BC00C5E049 /* CoreGraphics.framework */; };
 		D3C98483190B95BC00C5E049 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C98482190B95BC00C5E049 /* UIKit.framework */; };
@@ -162,7 +161,6 @@
 		7405F45E1925A5C400BFC99F /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		748F94771924625800D49728 /* BrianMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianMainViewController.h; sourceTree = "<group>"; };
 		748F94781924625800D49728 /* BrianMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianMainViewController.m; sourceTree = "<group>"; };
-		748F94791924625800D49728 /* BrianMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianMainViewController.xib; sourceTree = "<group>"; };
 		748F94B61924627700D49728 /* BaseChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChooseView.h; sourceTree = "<group>"; };
 		748F94B71924627700D49728 /* BaseChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChooseView.m; sourceTree = "<group>"; };
 		748F94B81924627700D49728 /* BaseChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseChooseView.xib; sourceTree = "<group>"; };
@@ -260,12 +258,6 @@
 		748F955F1924627700D49728 /* BaseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseUtil.m; sourceTree = "<group>"; };
 		748F95601924627700D49728 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		748F95611924627700D49728 /* IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAddress.m; sourceTree = "<group>"; };
-		74EFF696192EE50700D46195 /* BrianExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianExchangeViewController.h; sourceTree = "<group>"; };
-		74EFF697192EE50700D46195 /* BrianExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianExchangeViewController.m; sourceTree = "<group>"; };
-		74EFF698192EE50700D46195 /* BrianExchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianExchangeViewController.xib; sourceTree = "<group>"; };
-		74EFF69C192EE63600D46195 /* BrianExchangeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianExchangeTableViewCell.h; sourceTree = "<group>"; };
-		74EFF69D192EE63600D46195 /* BrianExchangeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianExchangeTableViewCell.m; sourceTree = "<group>"; };
-		74EFF69E192EE63600D46195 /* BrianExchangeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianExchangeTableViewCell.xib; sourceTree = "<group>"; };
 		74FA1A651936D3F10070173A /* bg_money_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_money_head@2x.png"; sourceTree = "<group>"; };
 		74FA1A661936D3F10070173A /* btn_money_check_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_money_check_no@2x.png"; sourceTree = "<group>"; };
 		74FA1A671936D3F10070173A /* btn_money_check_yes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_money_check_yes@2x.png"; sourceTree = "<group>"; };
@@ -349,6 +341,10 @@
 		D3890F671930A69B00793028 /* BrianExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianExchangeViewController.h; sourceTree = "<group>"; };
 		D3890F681930A69B00793028 /* BrianExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianExchangeViewController.m; sourceTree = "<group>"; };
 		D3890F691930A69B00793028 /* BrianExchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianExchangeViewController.xib; sourceTree = "<group>"; };
+		D39407EA194D6CB500CECEFE /* BrianExchangeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrianExchangeTableViewCell.h; sourceTree = "<group>"; };
+		D39407EB194D6CB500CECEFE /* BrianExchangeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrianExchangeTableViewCell.m; sourceTree = "<group>"; };
+		D39407EC194D6CB500CECEFE /* BrianExchangeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianExchangeTableViewCell.xib; sourceTree = "<group>"; };
+		D39407EF194D6DCC00CECEFE /* BrianMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrianMainViewController.xib; sourceTree = "<group>"; };
 		D3C9847B190B95BC00C5E049 /* MagicalTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicalTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C9847E190B95BC00C5E049 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D3C98480190B95BC00C5E049 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -410,6 +406,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39407F1194D6FC500CECEFE /* libzbar.a in Frameworks */,
 				74FC496D192DA0FE00862399 /* libxml2.2.dylib in Frameworks */,
 				D3DC4C53192738C90040AD2C /* AVFoundation.framework in Frameworks */,
 				D3DC4C51192737E10040AD2C /* CoreVideo.framework in Frameworks */,
@@ -445,7 +442,7 @@
 			children = (
 				748F94771924625800D49728 /* BrianMainViewController.h */,
 				748F94781924625800D49728 /* BrianMainViewController.m */,
-				748F94791924625800D49728 /* BrianMainViewController.xib */,
+				D39407EF194D6DCC00CECEFE /* BrianMainViewController.xib */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -695,27 +692,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		74EFF695192EE4B400D46195 /* 汇率 */ = {
-			isa = PBXGroup;
-			children = (
-				74EFF69B192EE60700D46195 /* cell */,
-				74EFF696192EE50700D46195 /* BrianExchangeViewController.h */,
-				74EFF697192EE50700D46195 /* BrianExchangeViewController.m */,
-				74EFF698192EE50700D46195 /* BrianExchangeViewController.xib */,
-			);
-			path = "汇率";
-			sourceTree = "<group>";
-		};
-		74EFF69B192EE60700D46195 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				74EFF69C192EE63600D46195 /* BrianExchangeTableViewCell.h */,
-				74EFF69D192EE63600D46195 /* BrianExchangeTableViewCell.m */,
-				74EFF69E192EE63600D46195 /* BrianExchangeTableViewCell.xib */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
 		74FBDA59193324F6002A8F63 /* 参考资料 */ = {
 			isa = PBXGroup;
 			children = (
@@ -913,6 +889,9 @@
 		D3890F6C1930A6B200793028 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				D39407EA194D6CB500CECEFE /* BrianExchangeTableViewCell.h */,
+				D39407EB194D6CB500CECEFE /* BrianExchangeTableViewCell.m */,
+				D39407EC194D6CB500CECEFE /* BrianExchangeTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1209,25 +1188,24 @@
 				74FBDA74193324F6002A8F63 /* btn_count@2x.png in Resources */,
 				74FBDA72193324F6002A8F63 /* bg_money_input@2x.png in Resources */,
 				74FBDA70193324F6002A8F63 /* btn_back@2x.png in Resources */,
-				748F947B1924625800D49728 /* BrianMainViewController.xib in Resources */,
 				D3DC4C49192734220040AD2C /* zbar-help.html in Resources */,
 				74FBDA6C193324F6002A8F63 /* bg_tip@2x.png in Resources */,
+				D39407F0194D6DCC00CECEFE /* BrianMainViewController.xib in Resources */,
 				D3C984CA190B9DBB00C5E049 /* cityData.plist in Resources */,
 				D3C98489190B95BC00C5E049 /* InfoPlist.strings in Resources */,
 				74FBDA76193324F6002A8F63 /* img_detail_close@2x.png in Resources */,
 				748F95C61924627800D49728 /* BaseHeaderStateView.xib in Resources */,
 				748F957C1924627700D49728 /* BaseNoticeView.xib in Resources */,
 				D3890F6B1930A69B00793028 /* BrianExchangeViewController.xib in Resources */,
-				74FA1F7019249AF3001920A2 /* btn_tip_ok@2x.png in Resources */,
 				74FBDA6B193324F6002A8F63 /* 个税计算.txt in Resources */,
 				748F957A1924627700D49728 /* BaseChooseView.xib in Resources */,
 				74FBDA71193324F6002A8F63 /* btn_back_focus@2x.png in Resources */,
 				D3C98491190B95BC00C5E049 /* Images.xcassets in Resources */,
 				74FA1A681936D3F10070173A /* bg_money_head@2x.png in Resources */,
 				D3DC4C4B192734220040AD2C /* zbar-samples.png in Resources */,
-				74EFF6A0192EE63600D46195 /* BrianExchangeTableViewCell.xib in Resources */,
 				74FBDA6D193324F6002A8F63 /* btn_tip_ok@2x.png in Resources */,
 				D3DC4C48192734220040AD2C /* zbar-back.png in Resources */,
+				D39407EE194D6CB500CECEFE /* BrianExchangeTableViewCell.xib in Resources */,
 				748F95811924627700D49728 /* BaseTipView.xib in Resources */,
 				74FBDA75193324F6002A8F63 /* btn_count_focus@2x.png in Resources */,
 				74FA1A691936D3F10070173A /* btn_money_check_no@2x.png in Resources */,
@@ -1285,7 +1263,6 @@
 				748F95791924627700D49728 /* BaseChooseView.m in Sources */,
 				748F958E1924627700D49728 /* BaseDownLoader.m in Sources */,
 				748F95931924627700D49728 /* BaseImageScrollView.m in Sources */,
-				74EFF69F192EE63600D46195 /* BrianExchangeTableViewCell.m in Sources */,
 				748F95C71924627800D49728 /* BaseStateView.m in Sources */,
 				748F958D1924627700D49728 /* BaseDiskOperation.m in Sources */,
 				D3DC4C22192733470040AD2C /* BrianPayCountViewController.m in Sources */,
@@ -1319,6 +1296,7 @@
 				D3DC4C2A1927336E0040AD2C /* BrianScanViewController.m in Sources */,
 				748F95991924627700D49728 /* BaseNavigationController.m in Sources */,
 				748F95CC1924627800D49728 /* BaseTouchDisappearView.m in Sources */,
+				D39407ED194D6CB500CECEFE /* BrianExchangeTableViewCell.m in Sources */,
 				748F95961924627700D49728 /* STTweetLabel.m in Sources */,
 				74FC4957192D9FD200862399 /* ASIDataDecompressor.m in Sources */,
 				748F958F1924627700D49728 /* BaseDownloaderCache.m in Sources */,

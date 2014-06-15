@@ -7,11 +7,11 @@
 //
 
 #import "BaseViewController.h"
-//#import "ZBarSDK.h"
+#import "ZBarSDK.h"
 
-@interface BrianScanViewController : BaseViewController//<ZBarReaderDelegate,ZBarReaderViewDelegate>
+@interface BrianScanViewController : BaseViewController<ZBarReaderDelegate,ZBarReaderViewDelegate>
 
-//@property (nonatomic,strong) ZBarReaderView* readerView;
+@property (nonatomic,strong) ZBarReaderView* readerView;
 @property (nonatomic,strong) IBOutlet UIView* sacnSignView;
 
 @end
