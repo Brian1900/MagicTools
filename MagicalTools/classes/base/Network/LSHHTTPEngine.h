@@ -26,6 +26,6 @@
 
 + (id)getInstance;
 
-
+- (void)sendGetExchange:(BrianExchangeRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail;
 
 @end

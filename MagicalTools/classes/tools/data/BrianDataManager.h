@@ -20,49 +20,49 @@
 
 @property (nonatomic,strong) NSString* cityName;
 
-@property (nonatomic,assign) float salaryBefore;
+@property (nonatomic,strong) NSDecimalNumber* salaryBefore;
 
-@property (nonatomic,assign) NSInteger startTax;
-@property (nonatomic,assign) NSInteger minSecurity;
-@property (nonatomic,assign) NSInteger maxSecurity;
-@property (nonatomic,assign) NSInteger baseSecurity;
-@property (nonatomic,assign) NSInteger minHouse;
-@property (nonatomic,assign) NSInteger maxHouse;
-@property (nonatomic,assign) NSInteger baseHouse;
+@property (nonatomic,strong) NSDecimalNumber* startTax;
+@property (nonatomic,strong) NSDecimalNumber* minSecurity;
+@property (nonatomic,strong) NSDecimalNumber* maxSecurity;
+@property (nonatomic,strong) NSDecimalNumber* baseSecurity;
+@property (nonatomic,strong) NSDecimalNumber* minHouse;
+@property (nonatomic,strong) NSDecimalNumber* maxHouse;
+@property (nonatomic,strong) NSDecimalNumber* baseHouse;
 
-@property (nonatomic,assign) NSInteger payableTax;
+@property (nonatomic,strong) NSDecimalNumber* payableTax;
 
-@property (nonatomic,assign) float paidTax;
-@property (nonatomic,assign) float startPaidTax;
-@property (nonatomic,assign) float salaryAfter;
+@property (nonatomic,strong) NSDecimalNumber* paidTax;
+@property (nonatomic,strong) NSDecimalNumber* startPaidTax;
+@property (nonatomic,strong) NSDecimalNumber* salaryAfter;
 
-@property (nonatomic,assign) float selfOld;
-@property (nonatomic,assign) float selfMed;
-@property (nonatomic,assign) float selfJob;
-@property (nonatomic,assign) float selfHouse;
-@property (nonatomic,assign) float selfHurt;
-@property (nonatomic,assign) float selfBirth;
+@property (nonatomic,strong) NSDecimalNumber* selfOld;
+@property (nonatomic,strong) NSDecimalNumber* selfMed;
+@property (nonatomic,strong) NSDecimalNumber* selfJob;
+@property (nonatomic,strong) NSDecimalNumber* selfHouse;
+@property (nonatomic,strong) NSDecimalNumber* selfHurt;
+@property (nonatomic,strong) NSDecimalNumber* selfBirth;
 
-@property (nonatomic,assign) float selfPaidOld;
-@property (nonatomic,assign) float selfPaidMed;
-@property (nonatomic,assign) float selfPaidJob;
-@property (nonatomic,assign) float selfPaidHouse;
-@property (nonatomic,assign) float selfPaidHurt;
-@property (nonatomic,assign) float selfPaidBirth;
+@property (nonatomic,strong) NSDecimalNumber* selfPaidOld;
+@property (nonatomic,strong) NSDecimalNumber* selfPaidMed;
+@property (nonatomic,strong) NSDecimalNumber* selfPaidJob;
+@property (nonatomic,strong) NSDecimalNumber* selfPaidHouse;
+@property (nonatomic,strong) NSDecimalNumber* selfPaidHurt;
+@property (nonatomic,strong) NSDecimalNumber* selfPaidBirth;
 
-@property (nonatomic,assign) float comOld;
-@property (nonatomic,assign) float comMed;
-@property (nonatomic,assign) float comJob;
-@property (nonatomic,assign) float comHurt;
-@property (nonatomic,assign) float comBirth;
-@property (nonatomic,assign) float comHouse;
+@property (nonatomic,strong) NSDecimalNumber* comOld;
+@property (nonatomic,strong) NSDecimalNumber* comMed;
+@property (nonatomic,strong) NSDecimalNumber* comJob;
+@property (nonatomic,strong) NSDecimalNumber* comHurt;
+@property (nonatomic,strong) NSDecimalNumber* comBirth;
+@property (nonatomic,strong) NSDecimalNumber* comHouse;
 
-@property (nonatomic,assign) float comPaidOld;
-@property (nonatomic,assign) float comPaidMed;
-@property (nonatomic,assign) float comPaidJob;
-@property (nonatomic,assign) float comPaidHurt;
-@property (nonatomic,assign) float comPaidBirth;
-@property (nonatomic,assign) float comPaidHouse;
+@property (nonatomic,strong) NSDecimalNumber* comPaidOld;
+@property (nonatomic,strong) NSDecimalNumber* comPaidMed;
+@property (nonatomic,strong) NSDecimalNumber* comPaidJob;
+@property (nonatomic,strong) NSDecimalNumber* comPaidHurt;
+@property (nonatomic,strong) NSDecimalNumber* comPaidBirth;
+@property (nonatomic,strong) NSDecimalNumber* comPaidHouse;
 
 - (void)reset;
 

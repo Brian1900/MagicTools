@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-#import "BrianDataSource.h"
 
 typedef enum {
     ePickerTypeSelfOld = 0,
@@ -49,6 +48,13 @@ typedef enum {
 
 #pragma mark - detail
 @property (strong, nonatomic) IBOutlet UITableViewCell* detailCell;
+
+@property (strong, nonatomic) IBOutlet UIButton* oldCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* medCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* jobCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* hurtCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* birthCheckButton;
+@property (strong, nonatomic) IBOutlet UIButton* houseCheckButton;
 
 @property (strong, nonatomic) IBOutlet UIView* detailView;
 
@@ -94,5 +100,8 @@ typedef enum {
 #pragma mark - other
 @property (strong, nonatomic) IBOutlet UIView *selectView;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
+
+@property (strong, nonatomic) IBOutlet UIImageView* detailArrow;
+@property (strong, nonatomic) IBOutlet UIImageView* settingArrow;
 
 @end

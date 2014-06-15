@@ -169,10 +169,11 @@ static BaseHttpEngine* httpEngine = nil;
     return [[dataString dataUsingEncoding:NSUTF8StringEncoding] mutableCopy];
 }
 
-- (void)httpGetWithURL:(NSString*)urlNSString dictionary:(NSDictionary*)dictionary success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail
+- (void)httpGetWithURL:(NSString*)urlNSString success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail
 {
-    NSURL* url = [self urlWithUrl:urlNSString dictionary:dictionary];
-    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
+    TLog(@"HTTP GET %@",urlNSString);
+    
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlNSString]];
     request.successCallBack = success;
     request.failCallBack = fail;
     

@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface BrianMainViewController : BaseViewController
+{
+    AVCaptureSession * AVSession;
+    BOOL lightOn;
+}
 
 @end

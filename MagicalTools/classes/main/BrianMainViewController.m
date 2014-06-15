@@ -9,6 +9,7 @@
 #import "BrianMainViewController.h"
 #import "BrianPayCountViewController.h"
 #import "BrianScanViewController.h"
+#import "BrianExchangeViewController.h"
 
 @interface BrianMainViewController ()
 
@@ -47,6 +48,58 @@
     BrianScanViewController* scanVC = [[BrianScanViewController alloc] initWithNibName:@"BrianScanViewController" bundle:nil];
     
     [self.navigationController pushViewController:scanVC animated:YES];
+}
+
+- (IBAction)gotoLight:(id)sender {
+    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+//    if (!lightOn) {
+//        lightOn = YES;
+        if (device.torchMode == AVCaptureTorchModeOff) {
+            //Create an AV session
+//            AVCaptureSession * session = [[AVCaptureSession alloc]init];
+//            
+//            // Create device input and add to current session
+//            AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+//            [session addInput:input];
+//            
+//            // Create video output and add to current session
+//            AVCaptureVideoDataOutput * output = [[AVCaptureVideoDataOutput alloc]init];
+//            [session addOutput:output];
+//            
+//            // Start session configuration
+//            [session beginConfiguration];
+            if ([device lockForConfiguration:nil]) {
+                // Set torch to on
+                [device setTorchMode:AVCaptureTorchModeOn];
+                [device unlockForConfiguration];
+            }
+            
+//            [session commitConfiguration];
+//            
+//            // Start the session
+//            [session startRunning];
+            
+            // Keep the session around
+//            AVSession = session;
+        }
+//    }
+    else{
+        lightOn = NO;
+        
+        if ([device lockForConfiguration:nil]) {
+            [device setTorchMode:AVCaptureTorchModeOff];
+            [device unlockForConfiguration];
+        }
+        
+//        [AVSession stopRunning];
+    }
+}
+
+- (IBAction)gotoExchange:(id)sender {
+    BrianExchangeViewController* exchangeVC = [[BrianExchangeViewController alloc] initWithNibName:@"BrianExchangeViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:exchangeVC animated:YES];
 }
 
 @end

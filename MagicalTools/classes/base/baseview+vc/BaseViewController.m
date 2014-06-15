@@ -257,22 +257,22 @@
     [self.navigationBar setTitleImage:image];
 }
 
-//- (void)success:(id)sender success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail
-//{
-//    success(sender);
-//}
+- (void)success:(id)sender success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail
+{
+    success(sender);
+}
 //
-//- (void)fail:(id)sender success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail showTip:(BOOL)showTip
-//{
+- (void)fail:(id)sender success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail showTip:(BOOL)showTip
+{
 //    if (!sender) {
 //        [self ShowNetError];
 //    }else if([sender isKindOfClass:NSClassFromString(@"NetWorkBaseResponse")]){
 //        NetWorkBaseResponse* response = sender;
 //        [self showTip:response.errorMessage];
 //    }
-//    
-//    fail(sender);
-//}
+    
+    fail(sender);
+}
 //
 //- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail delegate:(id<ASIProgressDelegate>)delegate
 //{
@@ -285,246 +285,28 @@
 //    }
 //}
 //
-//- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail
-//{
-//    [self sendRequest:request success:success fail:fail showTip:YES];
-//}
-//
-//- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail showTip:(BOOL)showTip
-//{
-//    lastRequest = request;
-//    lastSuccessMethod = success;
-//    lastFailMethod = fail;
-//    lastTip = showTip;
-//    
-//    //1-9
-//    
-//    if ([request isKindOfClass:NSClassFromString(@"gm861ClientUpdateRequest")]) {
-//        [self.httpEngine sendUpdate:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm862_2GetVerifyImageRequest")]) {
-//        [self.httpEngine sendGetVerifyImage:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm862SendVerifyRequest")]) {
-//        [self.httpEngine sendSendVerify:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm863VerifyRequest")]) {
-//        [self.httpEngine sendVerify:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm864RegistRequest")]) {
-//        [self.httpEngine sendRegist:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm864_2NicknameCheckRequest")]) {
-//        [self.httpEngine sendNicknameCheck:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm865LoginRequest")]) {
-//        [self.httpEngine sendLogin:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm865_2LoginRequest")]) {
-//        [self.httpEngine sendThirdLogin:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm866SetPasswordRequest")]) {
-//        [self.httpEngine sendSetPassword:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm867RecommendElementRequest")]) {
-//        [self.httpEngine sendRecommendElement:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm868SendElementRequest")]) {
-//        [self.httpEngine sendSendElement:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm869RecommendAttRequest")]) {
-//        [self.httpEngine sendRecommendAtt:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }
-//    
-//    
-//    //10-19
-//    
-//    
-//    else if ([request isKindOfClass:NSClassFromString(@"gm8610_2AttListRequest")]) {
-//        [self.httpEngine sendAttList:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8610AttManagerRequest")]) {
-//        [self.httpEngine sendAttManager:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8611HotTagRequest")]) {
-//        [self.httpEngine sendHotTag:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8612SelfSettingRequest")]) {
-//        [self.httpEngine sendSelfSetting:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8614NewsRequest")]) {
-//        [self.httpEngine sendNews:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8615ZanRequest")]) {
-//        [self.httpEngine sendZan:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8616ColManagerRequest")]) {
-//        [self.httpEngine sendColManager:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8617PersonDetailRequest")]) {
-//        [self.httpEngine sendPersonDetail:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8618CommentListRequest")]) {
-//        [self.httpEngine sendCommentList:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8619CommentManagerRequest")]) {
-//        [self.httpEngine sendCommentManager:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }
-//    
-//    //20-29
-//    
-//    else if ([request isKindOfClass:NSClassFromString(@"gm8620SearchRequest")]) {
-//        [self.httpEngine sendSearch:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8621InviteFriendsRequest")]) {
-//        [self.httpEngine sendInviteFriends:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8622PushSettingRequest")]) {
-//        [self.httpEngine sendPushSetting:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8622_2PushSettingRequest")]) {
-//        [self.httpEngine sendPushSettingtwo:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8623MessageManagerRequest")]) {
-//        [self.httpEngine sendMessageManager:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8624GameRecommendRequest")]) {
-//        [self.httpEngine sendGameRecommend:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8625FocusFigureRequest")]) {
-//        [self.httpEngine sendFocusFigure:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8626ClassificationRequest")]) {
-//        [self.httpEngine sendClassification:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8627ScreeningRequest")]) {
-//        [self.httpEngine sendScreening:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8628GameDetailRequest")]) {
-//        [self.httpEngine sendGameDetail:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8629SearchGameRequest")]) {
-//        [self.httpEngine sendSearchGame:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }
-//    
-//    //30-31
-//    else if ([request isKindOfClass:NSClassFromString(@"gm8630CollectManagerRequest")]) {
-//        [self.httpEngine sendCollectGameManager:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }else if ([request isKindOfClass:NSClassFromString(@"gm8631MyCollectGamesRequest")]) {
-//        [self.httpEngine sendMyCollectGame:request success:^(id sender) {
-//            [self success:sender success:success fail:fail];
-//        } fail:^(id sender) {
-//            [self fail:sender success:success fail:fail showTip:showTip];
-//        }];
-//    }
-//}
-//
+- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail
+{
+    [self sendRequest:request success:success fail:fail showTip:YES];
+}
+
+- (void)sendRequest:(NetWorkBaseRequest*)request success:(SenderSuccessMethod)success fail:(SenderFailMethod)fail showTip:(BOOL)showTip
+{
+    lastSuccessMethod = success;
+    lastFailMethod = fail;
+    lastTip = showTip;
+    
+    //1-9
+    
+    if ([request isKindOfClass:NSClassFromString(@"BrianExchangeRequest")]) {
+        [self.httpEngine sendGetExchange:(BrianExchangeRequest*)request success:^(id sender) {
+            [self success:sender success:success fail:fail];
+        } fail:^(id sender) {
+            [self fail:sender success:success fail:fail showTip:showTip];
+        }];
+    }
+}
+
 //- (void)sendAgain
 //{
 //    [self sendRequest:lastRequest success:lastSuccessMethod fail:lastFailMethod];

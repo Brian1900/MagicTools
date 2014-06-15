@@ -105,19 +105,29 @@
         return ;
     }
     
-    [self countMoney:[self.beforMoney.text floatValue]];
+    [self countMoney:[NSDecimalNumber decimalNumberWithString:self.beforMoney.text]];
     [self refreshView];
     
-    self.afterMoney.text = [NSString stringWithFormat:@"%.2lf",currentModel.salaryAfter];
+    self.afterMoney.text = [NSString stringWithFormat:@"%.2lf",[currentModel.salaryAfter doubleValue]];
 }
 
 - (IBAction)showMore:(UIButton*)button {
     if (button.tag == 1) {
         detialOpen = !detialOpen;
+        if (detialOpen) {
+            self.detailArrow.image = [UIImage imageNamed:@"img_detail_open.png"];
+        }else{
+            self.detailArrow.image = [UIImage imageNamed:@"img_detail_close.png"];
+        }
     }
     
     if (button.tag == 2) {
         settingOpen = !settingOpen;
+        if (settingOpen) {
+            self.settingArrow.image = [UIImage imageNamed:@"img_detail_open.png"];
+        }else{
+            self.settingArrow.image = [UIImage imageNamed:@"img_detail_close.png"];
+        }
     }
     
     [self.tableView reloadData];
@@ -154,128 +164,203 @@
     [self.selectView setHidden:YES];
 }
 
-- (void)countMoney:(float)money
+- (void)countMoney:(NSDecimalNumber*)money
 {
-    CGFloat result = 0;
+    NSDecimalNumber* result = [NSDecimalNumber decimalNumberWithString:@"0"];
     
     [currentModel reset];
     
-    if (money > currentModel.minSecurity && money < currentModel.maxHouse) {
+    if ([money doubleValue] > [currentModel.minSecurity doubleValue] && [money doubleValue] < [currentModel.maxSecurity doubleValue]) {
         currentModel.baseSecurity = money;
         currentModel.baseHouse = money;
-    }else if(money > currentModel.maxHouse){
+    }else if([money doubleValue] > [currentModel.maxSecurity doubleValue]){
         currentModel.baseSecurity = currentModel.maxHouse;
         currentModel.baseHouse = currentModel.maxHouse;
     }
     
     currentModel.salaryBefore = money;
     
-    //个人
-    currentModel.selfPaidOld = currentModel.baseSecurity*currentModel.selfOld;
-    currentModel.selfPaidMed = currentModel.baseSecurity*currentModel.selfMed;
-    currentModel.selfPaidJob = currentModel.baseSecurity*currentModel.selfJob;
-    currentModel.selfPaidHurt = currentModel.baseSecurity*currentModel.selfHurt;
-    currentModel.selfPaidBirth = currentModel.baseSecurity*currentModel.selfBirth;
+    if (self.oldCheckButton.selected) {
+        currentModel.selfPaidOld = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.selfOld];
+        currentModel.comPaidOld = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.comOld];
+    }else{
+        currentModel.selfPaidOld = [NSDecimalNumber decimalNumberWithString:@"0"];
+        currentModel.comPaidOld = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
     
-    currentModel.selfPaidHouse = currentModel.baseHouse*currentModel.selfHouse;
+    if (self.medCheckButton.selected) {
+        currentModel.selfPaidMed = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.selfMed];
+        currentModel.comPaidMed = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.comMed];
+    }else{
+        currentModel.selfPaidMed = [NSDecimalNumber decimalNumberWithString:@"0"];
+        currentModel.comPaidMed = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
     
-    //公司
-    currentModel.comPaidOld = currentModel.baseSecurity*currentModel.comOld;
-    currentModel.comPaidMed = currentModel.baseSecurity*currentModel.comMed;
-    currentModel.comPaidJob = currentModel.baseSecurity*currentModel.comJob;
-    currentModel.comPaidHurt = currentModel.baseSecurity*currentModel.comHurt;
-    currentModel.comPaidBirth = currentModel.baseSecurity*currentModel.comBirth;
+    if (self.jobCheckButton.selected) {
+        currentModel.selfPaidJob = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.selfJob];
+        currentModel.comPaidJob = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.comJob];
+    }else{
+        currentModel.selfPaidJob = [NSDecimalNumber decimalNumberWithString:@"0"];
+        currentModel.comPaidJob = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
     
-    currentModel.comPaidHouse = currentModel.baseHouse*currentModel.comHouse;
+    if (self.hurtCheckButton.selected) {
+        currentModel.selfPaidHurt = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.selfHurt];
+        currentModel.comPaidHurt = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.comHurt];
+    }else{
+        currentModel.selfPaidHurt = [NSDecimalNumber decimalNumberWithString:@"0"];
+        currentModel.comPaidHurt = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
     
+    if (self.birthCheckButton.selected) {
+        currentModel.selfPaidBirth = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.selfBirth];
+        currentModel.comPaidBirth = [currentModel.baseSecurity decimalNumberByMultiplyingBy:currentModel.comBirth];
+    }else{
+        currentModel.selfPaidBirth = [NSDecimalNumber decimalNumberWithString:@"0"];
+        currentModel.comPaidBirth = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
     
-    result = money - currentModel.selfPaidOld - currentModel.selfPaidMed - currentModel.selfPaidJob - currentModel.selfPaidHurt - currentModel.selfPaidBirth - currentModel.selfPaidHouse;
+    if (self.houseCheckButton.selected) {
+        currentModel.selfPaidHouse = [currentModel.baseHouse decimalNumberByMultiplyingBy:currentModel.selfHouse];
+        currentModel.comPaidHouse = [currentModel.baseHouse decimalNumberByMultiplyingBy:currentModel.comHouse];
+    }else{
+        currentModel.selfPaidHouse = [NSDecimalNumber decimalNumberWithString:@"0"];
+        currentModel.comPaidHouse = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
+    
+    result = [[[[[[money decimalNumberBySubtracting:currentModel.selfPaidOld] decimalNumberBySubtracting: currentModel.selfPaidMed] decimalNumberBySubtracting:currentModel.selfPaidJob] decimalNumberBySubtracting:currentModel.selfPaidHurt] decimalNumberBySubtracting:currentModel.selfPaidBirth] decimalNumberBySubtracting:currentModel.selfPaidHouse];
     
     currentModel.paidTax = [self countTax:result];
     
-    currentModel.salaryAfter = result - currentModel.paidTax;
+    currentModel.salaryAfter = [result decimalNumberBySubtracting:currentModel.paidTax] ;
 }
 
 - (void)refreshView
 {
     //输入
-    self.afterMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.salaryAfter];
+    self.afterMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.salaryAfter doubleValue]];
     
-    self.paidRevenue.text = [NSString stringWithFormat:@"%.2f",currentModel.paidTax];
+    self.paidRevenue.text = [NSString stringWithFormat:@"%.2f",[currentModel.paidTax doubleValue]];
     
     //详情
-    self.allSelfMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidOld + currentModel.selfPaidMed + currentModel.selfPaidJob + currentModel.selfPaidHouse];
+    self.allSelfMoney.text = [NSString stringWithFormat:@"%.2f",[[[[[currentModel.selfPaidOld decimalNumberByAdding:currentModel.selfPaidMed] decimalNumberByAdding:currentModel.selfPaidMed] decimalNumberByAdding:currentModel.selfPaidJob] decimalNumberByAdding:currentModel.selfPaidHouse] doubleValue]];
     
-    self.allComMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidOld + currentModel.comPaidMed + currentModel.comPaidJob + currentModel.comPaidHurt + currentModel.comPaidBirth + currentModel.comPaidHouse];
+    self.allComMoney.text = [NSString stringWithFormat:@"%.2f",[[[[[[currentModel.comPaidOld decimalNumberByAdding: currentModel.comPaidMed] decimalNumberByAdding: currentModel.comPaidJob] decimalNumberByAdding: currentModel.comPaidHurt] decimalNumberByAdding: currentModel.comPaidBirth] decimalNumberByAdding: currentModel.comPaidHouse] doubleValue]];
     
-    self.selfOldMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidOld];
-    [self.selfOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfOld * 100] forState:UIControlStateNormal];
-    self.comOldMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidOld];
-    [self.comOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comOld * 100] forState:UIControlStateNormal];
+//    if (self.oldCheckButton.selected) {
+        self.selfOldMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.selfPaidOld doubleValue]];
+        [self.selfOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfOld decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+        self.comOldMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.comPaidOld doubleValue]];
+        [self.comOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comOld decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }else{
+//        self.selfOldMoney.text = @"0";
+//        [self.selfOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfOld decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//        self.comOldMoney.text = @"0";
+//        [self.comOldButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comOld decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }
     
-    self.selfMedMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidMed];
-    [self.selfMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfMed * 100] forState:UIControlStateNormal];
-    self.comMedMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidMed];
-    [self.comMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comMed * 100] forState:UIControlStateNormal];
+//    if (self.medCheckButton.selected) {
+        self.selfMedMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.selfPaidMed doubleValue]];
+        [self.selfMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfMed decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+        self.comMedMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.comPaidMed doubleValue]];
+        [self.comMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comMed decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }else{
+//        self.selfMedMoney.text = @"0";
+//        [self.selfMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfMed decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//        self.comMedMoney.text = @"0";
+//        [self.comMedButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comMed decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }
     
-    self.selfJobMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidJob];
-    [self.selfJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfJob * 100] forState:UIControlStateNormal];
-    self.comJobMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidJob];
-    [self.comJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comJob * 100] forState:UIControlStateNormal];
+//    if (self.jobCheckButton.selected) {
+        self.selfJobMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.selfPaidJob doubleValue]];
+        [self.selfJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfJob decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+        self.comJobMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.comPaidJob doubleValue]];
+        [self.comJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comJob decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }else{
+//        self.selfJobMoney.text = @"0";
+//        [self.selfJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfJob decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//        self.comJobMoney.text = @"0";
+//        [self.comJobButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comJob decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }
     
-    self.comHurtMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidHurt];
-    [self.comHurtButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comHurt * 100] forState:UIControlStateNormal];
+//    if (self.hurtCheckButton.selected) {
+        self.comHurtMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.comPaidHurt doubleValue]];
+        [self.comHurtButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comHurt decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }else{
+//        self.comHurtMoney.text = @"0";
+//        [self.comHurtButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comHurt decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }
     
-    self.comBirthMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidBirth];
-    [self.comBirthButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comBirth * 100] forState:UIControlStateNormal];
+//    if (self.birthCheckButton.selected) {
+        self.comBirthMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.comPaidBirth doubleValue]];
+        [self.comBirthButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comBirth decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }else{
+//        self.comBirthMoney.text = @"0";
+//        [self.comBirthButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comBirth decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }
     
-    self.selfHouseMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.selfPaidHouse];
-    [self.selfHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.selfHouse * 100] forState:UIControlStateNormal];
-    self.comHouseMoney.text = [NSString stringWithFormat:@"%.2f",currentModel.comPaidHouse];
-    [self.comHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",currentModel.comHouse * 100] forState:UIControlStateNormal];
+//    if (self.houseCheckButton.selected) {
+        self.selfHouseMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.selfPaidHouse doubleValue]];
+        [self.selfHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfHouse decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+        self.comHouseMoney.text = [NSString stringWithFormat:@"%.2f",[currentModel.comPaidHouse doubleValue]];
+        [self.comHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comHouse decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }else{
+//        self.selfHouseMoney.text = @"0";
+//        [self.selfHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.selfHouse decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//        self.comHouseMoney.text = @"0";
+//        [self.comHouseButton setTitle:[NSString stringWithFormat:@"%.1f%%",[[currentModel.comHouse decimalNumberByMultiplyingBy: [NSDecimalNumber decimalNumberWithString:@"100"]] doubleValue]] forState:UIControlStateNormal];
+//    }
+    
     
     //起征点
-    self.baseSecurity.text = [NSString stringWithFormat:@"%d",currentModel.baseSecurity];
+    self.baseSecurity.text = [NSString stringWithFormat:@"%.0f",[currentModel.baseSecurity doubleValue]];
     
-    self.baseHouse.text = [NSString stringWithFormat:@"%d",currentModel.baseHouse];
+    self.baseHouse.text = [NSString stringWithFormat:@"%.0f",[currentModel.baseHouse doubleValue]];
     
-    self.baseRevenue.text = [NSString stringWithFormat:@"%d",currentModel.startTax];
+    self.baseRevenue.text = [NSString stringWithFormat:@"%.0f",[currentModel.startTax doubleValue]];
     
-    self.basePaidRevenue.text = [NSString stringWithFormat:@"%.2f",currentModel.startPaidTax];
+    self.basePaidRevenue.text = [NSString stringWithFormat:@"%.2f",[currentModel.startPaidTax doubleValue]];
 }
 
-- (float)countTax:(float)money
+- (NSDecimalNumber*)countTax:(NSDecimalNumber*)money
 {
-    money = money - currentModel.startTax;
+    money = [money decimalNumberBySubtracting:currentModel.startTax];
     
-    if (money < 0) {
-        currentModel.startPaidTax = 0;
-        return 0;
+    if ([money doubleValue] < 0) {
+        currentModel.startPaidTax = [NSDecimalNumber decimalNumberWithString:@"0"];
+        return currentModel.startPaidTax;
     }
     
     currentModel.startPaidTax = money;
     
-    if (money <= 1500) {
-        return money * 0.03;
-    }else if (money > 1500 && money <= 4500) {
-        return money * 0.1 - 105;
-    }else if (money > 4500 && money <= 9000) {
-        return money * 0.2 - 555;
-    }else if (money > 9000 && money <= 35000) {
-        return money * 0.25 - 1005;
-    }else if (money > 35000 && money <= 55000) {
-        return money * 0.3 - 2755;
-    }else if (money > 55000 && money <= 80000) {
-        return money * 0.35 - 5505;
+    if ([money doubleValue]<= 1500) {
+        return [money decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"0.03"]];
+    }else if ([money doubleValue] > 1500 && [money doubleValue] <= 4500) {
+        return [[money decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"0.1"]] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"105"]];
+    }else if ([money doubleValue] > 4500 && [money doubleValue] <= 9000) {
+        return [[money decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"0.2"]] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"555"]];
+    }else if ([money doubleValue] > 9000 && [money doubleValue] <= 35000) {
+        return [[money decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"0.25"]] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"1005"]];
+    }else if ([money doubleValue] > 35000 && [money doubleValue] <= 55000) {
+        return [[money decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"0.3"]] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"2755"]];
+    }else if ([money doubleValue] > 55000 && [money doubleValue] <= 80000) {
+        return [[money decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"0.35"]] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"5505"]];
     }else{
-        return money * 0.45 - 13505;
+        return [[money decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"0.45"]] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"13505"]];
     }
+}
+
+- (IBAction)selectCheck:(UIButton*)button
+{
+    [button setSelected:!button.selected];
 }
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     NSInteger num = [textField.text integerValue];
+    
+    NSString* numString = [NSString stringWithFormat:@"%d",num];
     
     switch (textField.tag) {
         case 0:
@@ -285,17 +370,17 @@
             break;
         case 1:
         {
-            currentModel.baseSecurity = num;
+            currentModel.baseSecurity = [NSDecimalNumber decimalNumberWithString:numString];
         }
             break;
         case 2:
         {
-            currentModel.baseHouse = num;
+            currentModel.baseHouse = [NSDecimalNumber decimalNumberWithString:numString];
         }
             break;
         case 3:
         {
-            currentModel.startTax = num;
+            currentModel.startTax = [NSDecimalNumber decimalNumberWithString:numString];
         }
             break;
     }
